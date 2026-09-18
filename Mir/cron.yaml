@@ -1,0 +1,17 @@
+cron:
+- description: "update law votes"
+  url: /core/cron/cron_law.php
+  schedule: every day 0:00
+  # Retry up to five times (the default) with a starting backoff of 2.5 seconds that doubles each time
+  retry_parameters:
+    min_backoff_seconds: 2.5
+    max_doublings: 5
+
+# - description: "monday morning mailout"
+#   url: /mail/weekly
+#   schedule: every monday 09:00
+#   timezone: Australia/NSW
+# - description: "new daily summary job"
+#   url: /tasks/summary
+#   schedule: every 24 hours
+#   target: beta

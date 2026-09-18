@@ -1,0 +1,645 @@
+/* Default stuff */
+.clear-float
+{
+	clear:both;
+}
+.modal-body p
+{
+    text-align: justify;
+}
+
+/* Global page layout */
+#forum-content
+{
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+/* Board */
+
+
+/*  TOPIC  */
+.topic-wrapper,
+.board-wrapper
+{
+    position: relative;
+    float:left;
+    width:100%;
+    height:50px;
+    word-wrap: break-word;
+    overflow:hidden;
+    border: 1px solid gray;
+    margin-bottom: 5px;
+    border-radius: 3px;
+    box-shadow: 1px 1px 1px grey;
+}
+.topic-unpinned,
+.standard-board-color
+{
+    background-color: #f4e8dc;
+}
+.topic-pinned
+{
+    background-color: orange;
+}
+.topic-icon-new-message
+{
+    position: relative;
+    height:100%;
+    width: 5%;
+    float: left;
+    background:url(../img/forum/icon-new-msg.png) no-repeat center center;
+}
+/* The default message icon. Message icon without any "new unread message" gestion */
+.topic-icon-message
+{
+    position: relative;
+    height:100%;
+    width: 5%;
+    float: left;
+    background:url(../img/forum/icon-new-msg.png) no-repeat center center;
+}
+.topic-icon-no-new-message
+{
+    position: relative;
+    height:100%;
+    width: 5%;
+    float: left;
+    background:url(../img/forum/icon-no-new-msg.png) no-repeat center center;
+}
+.board-icon-folder
+{
+    position: relative;
+    height:100%;
+    width: 5%;
+    float: left;
+    background:url(../img/forum/board-icon-folder.png) no-repeat center center;
+}
+.topic-icon-pin
+{
+    position: relative;
+    height:100%;
+    width: 5%;
+    float: left;
+    background:url(../img/forum/icon-pin.png) no-repeat center center;
+}
+.topic-subject-wrapper,
+.board-subject-wrapper
+{
+    position: relative;
+    width: 65%;
+    float: left;
+}
+/* Contenu du module topic */
+.topic-title,
+.board-title
+{
+    text-decoration:none;
+    font-weight:bold;
+}
+.topic-title:hover,
+.board-title:hover
+{
+    text-decoration: underline;
+    cursor: pointer;
+}
+/* Pin icon on the left of the new message info */
+/* .topic-icon-pin
+{
+    position: absolute;
+    height:100%;
+    width:100%;
+    left:13%; 
+    background:url(../img/forum/icon-pin.png) no-repeat center center;
+} */
+/* Pin icon on the absolute left of the topic */
+.topic-answer-details,
+.board-answer-details
+{
+    position: relative;
+    width: 17%;
+    float: left;
+}
+.topic-answer-number,
+.board-topic-number
+{
+    position: relative;
+    width: 13%;
+    float: left;
+    transform: translate(0, 50%);
+}
+
+#btn-create-topic,
+#btn-goback-board,
+#btn-goback-topic,
+#btn-validate-survey-choice,
+#btn-new-topic-preview,
+#btn-new-topic-validate
+{
+    display: block;
+    border:1px solid black;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+/* FIN TOPIC */
+
+/* DEBUT MESSAGE */
+
+.message-wrapper
+{
+    position: relative;
+    float:left;
+    width:100%;
+    height:auto;
+    min-height: 200px;
+    word-wrap: break-word;
+    border: 1px solid gray;
+    margin-bottom: 1px;
+    background-color: #f4e8dc;
+    box-shadow: 1px 1px 1px grey;
+    margin-bottom: 10px;
+}
+.message-author-wrapper
+{
+    position: relative;
+    width: 10%;
+    float: left;
+    /*top: 50%;*/
+    /*left: 3%;*/
+    
+    /*-ms-transform: translate(0%, -50%);
+    transform: translate(0%, -50%);*/
+}
+.message-author-name
+{
+    position: relative; /*Relatif à l'élément parent, lui même absolu par rapport à son parent */
+    width: 100%; /* dans l'élément parent car relatif */
+    height:auto;
+    font-weight: bold;
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.message-author-avatar
+{
+    position: relative;
+    width: 100%;
+    height: 100px;
+    background:url(../img/forum/ghost-model.png) no-repeat center center;
+}
+.message-content-wrapper
+{
+    position: relative;
+    float: left;
+    height: 100%;
+    width: 87%;
+    box-sizing:border-box;
+    padding: 20px;
+}
+.message-content-date
+{
+    position: relative;
+    font-style: italic;
+}
+.message-content-text
+{
+    position: relative;
+    word-wrap: break-word;
+    text-align: justify;
+    padding-top: 15px;
+}
+.message-content-edited
+{
+    font-style: italic;
+}
+.message-edit-icon
+{
+    position: relative;
+    float: left;
+    height:100%;
+    width: 3%;
+    padding-top: 20px; 
+    border-top:1px solid #fdd8b4; /* Necessary to avoir empty div (or the image won't show) */
+    background:url(../img/forum/icon-edit-msg.png) no-repeat bottom right;
+}
+.message-report-icon
+{
+    position: relative;
+    float: left;
+    width: 3%;
+    padding-top: 20px; 
+    border-top:1px solid #fdd8b4; /* Necessary to avoir empty div (or the image won't show) */
+    background:url(../img/forum/icon-report-msg.png) no-repeat bottom right;
+}
+.message-edit-icon:hover,
+.message-report-icon:hover
+{
+    border:1px solid black;
+    background-color: rgb(180, 159, 120);
+    cursor: pointer;
+}
+.survey-content
+{
+    margin-left:40%;
+    border-left : 1px solid grey;
+    padding-left : 10px;
+}
+.survey-title
+{
+    text-align:center;
+}
+
+
+/* FIN MESSAGE */
+
+/* DEBUT AJOUT MESSAGE */
+#new-message-wrapper,
+#new-topic-wrapper
+{
+    position: relative;
+    float:left;
+    width:100%;
+    height:532px; /* En-tête (30px) + textarea (500px) + 2px de bordure */
+    border: 1px solid gray;
+    margin-bottom: 1px;
+    background-color: orange;
+}
+#new-message-format,
+#new-topic-format
+{
+    position:relative;
+    width:100%;
+    height:30px;
+    border-bottom:1px solid grey;
+}
+#format-text
+{
+    position: relative;
+    width:90px;
+    float:left;
+}
+#format-text-bold
+{
+    position: relative;
+    float:left;
+    width:33%;
+    height: 30px;
+    border:1px solid grey;
+    background-color:#fdd8b4;
+    background: url(../img/forum/icon-bold.png) no-repeat center center;
+}
+#format-text-bold:hover,
+#format-text-underline:hover,
+#format-text-quote:hover
+{
+    border:1px solid black;
+    background-color: rgb(180, 159, 120);
+    cursor: pointer;
+}
+#format-text-underline
+{
+    position: relative;
+    float:left;
+    width:33%;
+    height: 30px;
+    border:1px solid grey;
+    background-color:#fdd8b4;
+    background: url(../img/forum/icon-underline.png) no-repeat center center;
+}
+#format-text-quote
+{
+    position: relative;
+    float:left;
+    width:33%;
+    height: 30px;
+    border:1px solid grey;
+    background-color:#fdd8b4;
+    background: url(../img/forum/icon-quote.png) no-repeat center center;
+}
+#format-emotes
+{
+    position: relative;
+    float: left;
+    margin-left: 30px;
+}
+#new-message-validate,
+#new-topic-validate,
+#edit-message-validate,
+#new-topic-preview
+{
+    position: relative;
+    width:10%;
+    height:100%;
+    float:right;
+    background-color: palegreen;
+    text-align: center;
+    border-left: 1px solid grey;
+}
+#new-message-validate:hover,
+#new-topic-validate:hover,
+#edit-message-validate:hover,
+#new-topic-preview:hover
+{
+    background-color: rgb(119, 192, 119);
+    cursor: pointer;
+}
+#btn-cancel-edition
+{
+    position: relative;
+    width:10%;
+    height:100%;
+    float:right;
+    background-color: red;
+    text-align: center;
+    border-left: 1px solid grey;
+}
+#btn-cancel-edition:hover
+{
+    background-color: darkred;
+    cursor: pointer;
+}
+
+/* EMOTES & ICONS */
+.forum-emote
+{
+    position: relative;
+    float: left;
+    width: 30px;
+    height: 30px;
+}
+.emote-thumb,
+.emote-thumb-display
+{
+    background: url(../img/forum/emote-thumb.png) no-repeat center center;
+}
+.emote-heart,
+.emote-heart-display
+{
+    background: url(../img/forum/emote-heart.png) no-repeat center center;
+}
+.emote-laugh,
+.emote-laugh-display
+{
+    background: url(../img/forum/emote-laugh.png) no-repeat center center;
+}
+.emote-smile,
+.emote-smile-display
+{
+    background: url(../img/forum/emote-smile.png) no-repeat center center;
+}
+.emote-sad,
+.emote-sad-display
+{
+    background: url(../img/forum/emote-sad.png) no-repeat center center;
+}
+.emote-angry,
+.emote-angry-display
+{
+    background: url(../img/forum/emote-angry.png) no-repeat center center;
+}
+.emote-fear,
+.emote-fear-display
+{
+    background: url(../img/forum/emote-fear.png) no-repeat center center;
+}
+.emote-danger,
+.emote-danger-display
+{
+    background: url(../img/forum/emote-danger.png) no-repeat center center;
+}
+.emote-surprised,
+.emote-surprised-display
+{
+    background: url(../img/forum/emote-surprised.png) no-repeat center center;
+}
+.emote-pls,
+.emote-pls-display
+{
+    background: url(../img/forum/emote-pls.png) no-repeat center center;
+}
+.emote-danger,
+.emote-danger-display
+{
+    background: url(../img/forum/emote-danger.png) no-repeat center center;
+}
+.emote-vomit,
+.emote-vomit-display
+{
+    background: url(../img/forum/emote-vomit.png) no-repeat center center;
+}
+.icon-wood,
+.icon-wood-display
+{
+    background: url(../img/forum/icon-wood.png) no-repeat center center;
+}
+.icon-metal,
+.icon-metal-display
+{
+    background: url(../img/forum/icon-metal.png) no-repeat center center;
+}
+.icon-orange,
+.icon-orange-display
+{
+    background: url(../img/forum/icon-orange.png) no-repeat center center;
+}
+.icon-honey,
+.icon-honey-display
+{
+    background: url(../img/forum/icon-honey.png) no-repeat center center;
+}
+.icon-cake,
+.icon-cake-display
+{
+    background: url(../img/forum/icon-cake.png) no-repeat center center;
+}
+.icon-mask,
+.icon-mask-display
+{
+    background: url(../img/forum/icon-mask.png) no-repeat center center;
+}
+.icon-helmet,
+.icon-helmet-display
+{
+    background: url(../img/forum/icon-helmet.png) no-repeat center center;
+}
+.icon-shield,
+.icon-shield-display
+{
+    background: url(../img/forum/icon-shield.png) no-repeat center center;
+}
+.icon-upper-armor,
+.icon-upper-armor-display
+{
+    background: url(../img/forum/icon-upper-armor.png) no-repeat center center;
+}
+.icon-lower-armor,
+.icon-lower-armor-display
+{
+    background: url(../img/forum/icon-lower-armor.png) no-repeat center center;
+}
+.icon-spear,
+.icon-spear-display
+{
+    background: url(../img/forum/icon-spear.png) no-repeat center center;
+}
+.icon-foe,
+.icon-foe-display
+{
+    background: url(../img/forum/icon-foe.png) no-repeat center center;
+}
+.icon-tree,
+.icon-tree-display
+{
+    background: url(../img/forum/icon-tree.png) no-repeat center center;
+}
+.icon-hive,
+.icon-hive-display
+{
+    background: url(../img/forum/icon-hive.png) no-repeat center center;
+}
+.icon-tree-fruit,
+.icon-tree-fruit-display
+{
+    background: url(../img/forum/icon-tree-fruit.png) no-repeat center center;
+}
+.icon-dj,
+.icon-dj-display
+{
+    background: url(../img/forum/icon-dj.png) no-repeat center center;
+}
+.emote-thumb:hover,
+.emote-heart:hover,
+.emote-pls:hover,
+.emote-vomit:hover,
+.emote-laugh:hover,
+.emote-smile:hover,
+.emote-sad:hover,
+.emote-angry:hover,
+.emote-fear:hover,
+.emote-surprised:hover,
+.emote-danger:hover,
+.icon-wood:hover,
+.icon-metal:hover,
+.icon-orange:hover,
+.icon-honey:hover,
+.icon-cake:hover,
+.icon-mask:hover,
+.icon-helmet:hover,
+.icon-shield:hover,
+.icon-upper-armor:hover,
+.icon-lower-armor:hover,
+.icon-spear:hover,
+.icon-foe:hover,
+.icon-tree:hover,
+.icon-hive:hover,
+.icon-tree-fruit:hover,
+.icon-dj:hover
+{
+    background-color: rgb(180, 159, 120);
+    cursor: pointer;
+}
+
+/* Display emotes on message */
+.emote-display
+{
+    padding-right:20px; 
+    padding-top: 20px; 
+    display:inline-block;
+}
+/* END EMOTES & ICONS */
+
+
+.new-message-text,
+.new-topic-text
+{
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+#new-message-textarea,
+#new-topic-textarea
+{ 
+    box-sizing: border-box;
+    word-wrap: break-word;
+    overflow: auto;
+    text-align: justify;
+    /*background-color:#fdd8b4;*/
+    width: 100%;
+    height: 500px; 
+    padding: 12px 20px;
+    resize: none !important;
+}
+
+/* New Topic */
+/* #new-topic-wrapper
+{
+    position: relative;
+    float:left;
+    width:100%;
+    height:auto; 
+    border: 1px solid gray;
+    margin-bottom: 1px;
+    background-color: #fdd8b4;
+} */
+/* New Topic Header */
+#new-topic-header
+{
+    width:100%;
+    padding:20px;
+    /* padding-right:30%; */
+    border: 1px solid grey;
+}
+#survey-choices-wrapper
+{
+    height:auto;
+    max-height: 500px;
+    overflow: auto;
+}
+.topic-survey-choice
+{
+    margin-top: 10px;
+}
+.topic-del-choice
+{
+    height: 20px;
+    width: 20px;
+    display: inline-block;
+    background: url(../img/forum/red-cross.png) no-repeat center center;
+}
+#topic-add-choice
+{
+    height: 20px;
+    width: 20px;
+    display: inline-block;
+    background: url(../img/forum/green-plus.png) no-repeat center center;
+    margin:10px;
+}
+#topic-add-choice:hover,
+.topic-del-choice:hover
+{
+    background-color: lightgray;
+}
+
+
+/* REPORT */
+
+.report-message-textarea
+{
+    width: 100%;
+    height: 100%; 
+    box-sizing:border-box;
+    resize: none;
+}
+
+/* Pagination */
+.pagination > li > a
+{
+    background-color: #f5f5dc;
+}
+
+.pagination > li > a.current-page
+{
+    background-color: #f4e8dc;
+}

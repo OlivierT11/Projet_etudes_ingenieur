@@ -1,0 +1,73 @@
+$_SESSION
+$_SESSION['invent-list-id'] : tableau de comparaison des ids des inventaires dans les divs avec les ids des items BDD (sanitize invents). 
+    Se crée depuis la BDD à chaque chargement de page possédant au moins 1 inventaire. Ne se modifie pas.
+
+***************
+INVENTORY
+***************
+
+player-invent-is-full = (0,1)
+Initiated : TODO
+USED : ajax_general.php
+
+
+player_upper_lvl
+player_upper_dur
+...
+
+Initiated : ctrl_life_bars.php
+USED : ajax_battle.php
+
+
+*************
+STATS
+*************
+
+Pour chaque stat :
+
+$_SESSION['player_stat']['atk_stat']['id_stat']
+$_SESSION['player_stat']['atk_stat']['player_stat_lvl']
+$_SESSION['player_stat']['atk_stat']['player_stat_xp']
+
+...
+
+Initiated : ctrl_login.php (on connect)
+USED : ajax_general.php ??
+    ajax_battle.php (battle)
+
+
+***************
+PLAYER LIFE BARS
+***************
+
+
+player-food-bar
+
+Initiated : ???
+USED : ajax_item.php (eat)
+
+
+
+***************
+EQUIPEMENT
+***************
+$_SESSION['player_upper_dur']
+$_SESSION['player_upper_lvl']
+
+... Idem pour tous les équipements ...
+
+Initié dans ctrl_lie_bars.php
+Utilisé dans vi_life_bars.php (affichage de l'équipement)
+    et ajax_battle.php (calcul de la force / def du joueur)
+
+
+
+***************
+MAP
+***************
+$_SESSION['player_pos_x']
+$_SESSION['player_pos_y']
+
+Initué dans ctrl_login.php (on connect)
+Utilisé dans ajax_battle.php (foe stats, foe_hp)
+    ajax_outside.php (display map)

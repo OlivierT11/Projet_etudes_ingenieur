@@ -1,0 +1,90 @@
+<?php 
+
+if(!isset($_SESSION['id_player'])){
+    $_SESSION['errorMsg'] = 'Déconnecté pour cause d\'inactivité';
+    header("location: index.php?page=login");
+    die();
+}
+
+// Prevent backtab from abyss
+if($_SESSION['player_area'] != 'dj'){
+    header("Location:index.php?page=".$_SESSION['player_area']);
+    die();
+}
+
+#region Inventory
+
+/**
+ * 
+ * Loads and format the inventories of the page.
+ * The loading is made from session, or DB is no session exists.
+ * 
+ */
+
+// Initialize object. The parent class Database is also charged w/ its constructor
+$invent = new Invent();
+
+// Gets every object on the page depending on the parameters and gives them a unique HTML id.
+$invent->getItemsList(true, false, true);
+
+// Invent player
+$inventPlayer = $invent->inventPlayer;
+$_SESSION['invent-size'] = $invent->playerInventSize;
+
+// Invent city
+$inventCity = $invent->inventCity;
+
+// Equipment
+$shieldEquiped = $invent->shieldEquiped;
+$upperEquiped = $invent->upperEquiped;
+$lowerEquiped = $invent->lowerEquiped;
+$helmetEquiped = $invent->helmetEquiped;
+$maskEquiped = $invent->maskEquiped;
+$spearEquiped = $invent->spearEquiped;
+
+// Create the session $listID array for all invents
+$_SESSION['invent-list-id'] = $invent->inventsList;
+
+#endregion
+
+
+/********/
+/* CAMP */
+/********/
+
+$_SESSION['id_camp'] = getIdCamp($database);
+
+/***********/
+/* DJ Exit */
+/***********/
+
+if(!isset($_SESSION['dj_x'])){ //1st time in DJ (entry or connection)
+    $djArray = getIdDj($database);
+    $_SESSION['dj_x'] = $djArray['dj_x'];
+    $_SESSION['dj_y'] = $djArray['dj_y'];
+}
+
+/*************/
+/* DJ2 ENTRY */
+/*************/
+
+//get the dj2 id
+if(!isset($_SESSION['id_dj2'])){
+    $dj2Array = getDj2Id($database); //returns something when the player is on an area that contains a dj2 entry
+    $_SESSION['id_dj2'] = $dj2Array['id_dj2'];
+    $_SESSION['dj2_x'] = $dj2Array['dj2_x']; 
+    $_SESSION['dj2_y'] = $dj2Array['dj2_y'];
+}
+
+/********/
+/* Foe */
+/********/
+
+//for fight button display (ctrl_life_bars)
+$foeNbr = getFoeNbr($database);
+
+//get foe lvl
+$foeLvl = getFoeLvl('dj', $database);
+
+// Display the player's actions
+$actionsListHTML = $action->getAllActions();

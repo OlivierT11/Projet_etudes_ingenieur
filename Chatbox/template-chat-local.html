@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+
+<!-- !!! Un BUG avec express empêche le chargement des pages CSS. Le navigateur croit que le type MIME text/css est en fait text/html.
+
+    https://stackoverflow.com/questions/44657829/css-file-blocked-mime-type-mismatch-x-content-type-options-nosniff
+
+    ERROR MSG : The resource from “http://localhost:3381/template-chat.css” was blocked due to MIME type (“text/html”) mismatch (X-Content-Type-Options: nosniff).
+
+En attendant, je met le style directement dans la page (ok car pas bcp de lignes)-->
+
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8"/>
+        <title> Mïr </title>
+
+        <!--<link rel="stylesheet" type="text/css" href="template-chat.css">-->
+        <style type="text/css">
+            #zone_chat {
+                box-sizing: border-box;
+                height:200px;
+                widows: 925px !important; /* not Responsive */
+                border:1px solid white;
+                word-wrap: break-word !important;
+                overflow-y:auto;
+                margin-top: 10px;
+               
+            }
+        </style>
+
+    </head>
+       
+    <body>
+        
+        <form action="/" method="post" id="formulaire_chat">
+            <input type="text" name="message" id="message" placeholder="Bienvenue dans la chatbox locale (extérieur)." size="135" maxlength="160"/>
+            <input type="submit" id="envoi_message" value="Envoyer" />
+        </form>
+
+        <section id="zone_chat">
+            <ul></ul>
+        </section>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="/socket.io/socket.io.js"></script>
+        
+        <script>
+            // Connexion à socket.io
+            var socket = io.connect('http://localhost:3381/localnsp');
+            socket.emit('getMyUserData');
+
+            // Quand on reçoit un message, on l'insère dans la page
+            socket.on('message', function(data) {
+                insereMessage(data.message);
+            })
+            // Affiche le nombre de joueurs connectés au début de la lsite de messages.
+            /*socket.on('user_nbr', function(data) {
+                $('#zone_chat').prepend('<li>' + data.message + '</li>');
+            })*/
+            /*
+            // Quand un nouveau client se connecte, on affiche l'information
+            socket.on('client_join', function(data) {
+                $('#zone_chat').prepend('<li><em>' + data.name + ' a rejoint le Chat !</em></li>');
+            })
+            // Quand un client se déconnecte, on affiche l'information
+            socket.on('client_leave', function(data) {
+                $('#zone_chat').prepend('<li><em>' + data.name + ' a quitté le Chat.</em></li>');
+            })
+            */
+            // Lorsqu'on envoie le formulaire, on transmet le message et on l'affiche sur la page
+            $('#formulaire_chat').submit(function () {
+                var message = $('#message').val();
+                if(message != ''){
+                    socket.emit('message', message); // Transmet le message aux autres
+                    //insereMessage(message); // Affiche le message aussi sur notre page
+                    $('#message').val('').focus(); // Vide la zone de Chat et remet le focus dessus
+                }
+                return false; // Permet de bloquer l'envoi "classique" du formulaire
+            });
+            
+            // Ajoute un message dans la page (fct commune pour server emit et post message)
+            function insereMessage(message) {
+                $('#zone_chat').prepend('<li>' + message.replace(/([^ ]{20})/g, "$1 ") + '</li>');
+                
+                //adds a username at the end of the current input when the user clicks on it.
+               /* document.getElementsByClassName('clickable-name')[0].addEventListener("click", function(event) { //TODO : cet event sur tous les msg
+                    var username = this.innerHTML;
+                    document.getElementById('message').value = document.getElementById('message').value + ' <span style="color:blue;font-weight:bold;">' + username + '</span> '; //!!
+                });*/
+            }
+        </script>
+
+    </body>
+</html>

@@ -1,0 +1,23 @@
+runtime: php73 # Replace with php74 to use PHP 7.4
+
+# Var d'environnement. Retrieve w/ echo $_SERVER['MY_VAR']; OR echo getenv('MY_VAR');
+env_variables:
+  ENV_TEST: "test"
+
+#Specifies that requests to the specific handler should target your app. 
+#The only accepted value for the script element is auto because all traffic is served using the entrypoint command. 
+#In order to use static handlers, at least one of your handlers must contain the line script: auto or define an entrypoint element to deploy successfully. 
+handlers:
+
+# Serve a directory as a static resource.
+- url: /www
+  static_dir: www
+
+# Serve images as static resources.
+- url: /(.+\.(gif|png|jpg))$
+  static_files: \1
+  upload: .+\.(gif|png|jpg)$
+
+# Serve your app through a front controller at index.php or public/index.php. If no entrypoint property is set.
+- url: .*
+  script: auto

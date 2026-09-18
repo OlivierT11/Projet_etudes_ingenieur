@@ -1,0 +1,17 @@
+How to clone an existing repo
+
+1) To the the current folder
+2) git clone https://github/(username)/(reponame)
+
+How to push changes
+
+1) Make a change to a file
+2) Go to the root of the repo (the same folder that on github)
+3) git add (path to filename)
+4) git status > display the list of added files
+5) git commit -m "comment"
+6) git push
+
+How to pull remote changes
+1) go the the root folder
+2) git pull

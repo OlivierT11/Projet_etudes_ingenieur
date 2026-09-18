@@ -1,0 +1,58 @@
+spider : https://pngimg.com/img/insects/spider (non commercial)
+like : http://www.publicdomainfiles.com/show_file.php?id=13924965026674
+honey-model : https://www.stickpng.com/img/food/honey/raw-honeycomb (Commercial usage: Not allowed)
+helmet-model : https://avalonsibyl.com/barbute-venetian-sallet-barbute-933
+upper-model : https://www.darkknightarmoury.com/metal-armor
+lower-model (belt armor) : https://www.pinterest.com/pin/91972017362170459/
+minimap-crack-model : google image free for all uses.
+
+
+OK FOR COMMERCIAL USE
+Spear-model : https://pixabay.com/fr/vectors/spear-arrow-arme-sharp-a-soulign%C3%A9-309691/
+orange-model : https://pixabay.com/fr/photos/fruit-orange-tranche-png-1234657/
+orange2 : https://pixabay.com/fr/vectors/oranges-d-agrumes-tranches-fruits-42395/
+orange-model2 : https://pixabay.com/fr/photos/fruit-cl%C3%A9mentine-png-orange-citrus-1222438/ (Libre pour usage commercial)
+mastery : fait à la main (paint.net)
+clock-model : https://pixabay.com/fr/vectors/horloge-vieille-horloge-antique-1605224/
+minimap-model (autres tailles dispo): https://pixabay.com/fr/illustrations/carte-du-monde-vieux-historiquement-2241469/
+star model : https://pixabay.com/fr/vectors/%C3%A9toiles-favorite-signet-3d-or-152151/
+camp-model : : https://pixabay.com/fr/vectors/ville-mur-b%C3%A2timents-l-architecture-48636/
+boussole : https://pixabay.com/fr/illustrations/vintage-inscrivez-vous-nautiques-1064142/
+
+forestcenter-side-model : https://unsplash.com/photos/EKF89yEbGf8
+plain-side-model : https://unsplash.com/photos/WZ95Xj4riik
+camp-plain-side : https://unsplash.com/photos/ZNG-2mynAns
+forest-camp-side-model : https://unsplash.com/photos/LxQe7xNGHJA
+mountain-side-model : https://unsplash.com/photos/d48lOpSllQU
+red-era-side-1 (unused) : https://unsplash.com/photos/byqgHC0XFME
+red-era-side-2 : https://unsplash.com/photos/GPPAjJicemU
+red-era-side-3 (unused) : https://unsplash.com/photos/nX3krCqOw98
+red-era-side-4 (unused) : https://unsplash.com/photos/xp-tY7kTiaA
+dark-era-side : https://unsplash.com/photos/76f3RRsquPw
+cave-side-1 : https://unsplash.com/photos/LNEJ2qqZVJ4
+cave-side-2: https://unsplash.com/photos/Hi0bdO0vEfo
+hell-side-1 : https://unsplash.com/photos/yZe0COUKqig
+hell-side-2 : https://unsplash.com/photos/-AsMlld5e2I
+city-side : https://unsplash.com/photos/xAkU1OaMEY0
+meteor-side : https://unsplash.com/photos/Bte8I7ACih8
+metal : https://pixabay.com/fr/vectors/d-argent-bar-m%C3%A9tal-brillant-576580/
+cake : https://pixabay.com/fr/vectors/g%C3%A2teau-cerise-sweet-d%C3%A9licieux-157194/
+baked-honey-model : https://pixabay.com/fr/vectors/verre-miel-en-bonne-sant%C3%A9-jaune-576337/
+baked-orange-model : https://pixabay.com/fr/vectors/tarte-cerise-tarte-aux-cerise-156493/
+
+baked-honey (unused) : https://pixabay.com/fr/vectors/bocal-couvercle-maison-verre-576763/
+baked-honey (unused) : https://pixabay.com/fr/vectors/confiture-bocal-miel-jam-jar-jaune-158628/
+baked-honey (unused) : https://pixabay.com/fr/vectors/miel-verre-verre-de-miel-sweet-156826/
+
+scorpion-model : https://pixabay.com/fr/vectors/scorpion-toxique-stinger-griffes-23158/
+mushroom-model : https://pixabay.com/fr/vectors/champignon-agaric-de-mouche-red-576463/
+château : https://pixabay.com/fr/vectors/ch%C3%A2teau-forteresse-fantaisie-157435/
+traveler1 : https://pixabay.com/fr/vectors/assistant-cap-hood-costume-145431/
+ghost1-model : https://pixabay.com/fr/vectors/fant%C3%B4me-halloween-spooky-peur-303596/
+ghost2-model: https://pixabay.com/fr/vectors/fant%C3%B4me-halloween-fantomatique-35852/
+
+poutre métal : https://pixabay.com/fr/vectors/poutre-de-fer-m%C3%A9tal-acier-gris-162073/
+pelle : https://pixabay.com/fr/vectors/pelle-truelle-creuser-%C3%A9quipement-575661/
+hache : https://pixabay.com/fr/vectors/hache-outil-sharp-mettre-en-%C5%93uvre-47042/
+cookie : https://pixabay.com/fr/vectors/hache-outil-sharp-mettre-en-%C5%93uvre-47042/
+bocal myrtille : https://pixabay.com/fr/vectors/myrtille-sauce-bocaux-bleu-576890/

@@ -1,0 +1,293 @@
+
+/*******************/
+/* MAP BACKGROUNDS */
+/*******************/
+
+#map{
+    border: 2px solid black;
+    border-radius: 5px;
+    box-shadow: 3px 3px 5px grey;
+    }
+
+#dj{
+    border: 2px solid black;
+    border-radius: 5px;
+    background-color:darkslategrey;
+    box-shadow: 3px 3px 5px grey;
+}
+
+#abyss{
+    border: 2px solid black;
+    border-radius: 5px;
+    background-color:darkslategrey;
+    box-shadow: 3px 3px 5px grey;
+}
+
+#dj2{
+    border: 2px solid black;
+    border-radius: 5px;
+    background-color:darkslategrey;
+    box-shadow: 3px 3px 5px grey;
+}
+#hell{
+    border: 2px solid black;
+    border-radius: 5px;
+    background-color:darkslategrey;
+    box-shadow: 3px 3px 5px grey;
+}
+
+
+/*********************************/
+/* MAP BACKGROUNDS ON OTHER ERAS */
+/*********************************/
+.mapColor{
+    background-color: green;
+    background:url(../img/grass-texture.jpg);
+}
+.mapRedColor{
+    background-color: darkred;
+    }
+.mapDarkColor{
+    background-color: rgb(61, 41, 41);
+    }
+    
+/* Overlay arrows on canvas (main view) */
+
+#main-map { 
+    position:relative;
+    float:left;
+    width:50%;
+ } /* Make this a positioned parent */
+
+/*************************/
+/* DISPLAY ON TOP OF MAP */
+/*************************/
+
+#shadowNbr{
+    color:rgb(245, 8, 8);
+    display:inline-block;
+}
+#AllyNbr{
+    color:rgb(0, 255, 255);
+    display:inline-block;
+}
+#foe-life-bar-full{
+    display:inline-block;
+    height:12px; 
+    width:70px; 
+    background-color:rgb(56, 26, 26);
+}
+#foe-life-bar-current{
+    height:12px; 
+    width:100%; 
+    background-color:rgb(182, 69, 69);
+}
+#allyNbr{
+    color:rgb(0, 225, 255);
+    display:inline-block;
+}
+
+/***********/
+/* MINIMAP */
+/***********/
+
+#displayMiniMap { position:absolute; top:400px; left:50px; height:50px; width:50px; border-radius:10px; background:url(../img/boussole.png) no-repeat center center; }
+#displayMiniMap:hover {background-color: rgba(0,0,0,0.5);}
+
+#minimap { position:absolute; top:40px; left:31px; height:auto; width:auto;}
+
+#minimap-side-north { position:absolute; top:60px; left:225px; height:50px; width:50px; border-radius: 5px;background-color: rgba(0,0,0,0.2); }
+#minimap-side-north:hover {background-color:black;  box-shadow: 3px 3px 5px grey;}
+#minimap-side-east { position:absolute; top:235px; left:380px; height:50px; width:50px; border-radius: 5px; background-color: rgba(0,0,0,0.2); }
+#minimap-side-east:hover {background-color:black;  box-shadow: 3px 3px 5px grey;}
+#minimap-side-south { position:absolute; top:390px; left:225px; height:50px; width:50px; border-radius: 5px; background-color: rgba(0,0,0,0.2); }
+#minimap-side-south:hover {background-color:black;  box-shadow: 3px 3px 5px grey;}
+#minimap-side-west { position:absolute; top:235px; left:70px; height:50px; width:50px; border-radius: 5px; background-color: rgba(0,0,0,0.2); }
+#minimap-side-west:hover {background-color:black;  box-shadow: 3px 3px 5px grey;}
+
+#minimap table{
+    position: relative;
+    border-collapse: collapse;
+    margin-top:10px;
+    margin-left:20px;
+}
+
+#minimap table tr .undiscovered{
+    width:20px;
+    height:20px;
+    background-color:rgb(151, 150, 150);
+}
+
+#minimap table tr .area-field{
+    width:20px;
+    height:20px;
+    background-color:rgb(4, 235, 4);
+}
+#minimap table tr .area-abyss{
+    width:20px;
+    height:20px;
+    background-color:black;
+}
+#minimap table tr .area-danger{
+    width:20px;
+    height:20px;
+    background-color:rgb(179, 21, 21);
+}
+#minimap table tr .area-ally{
+    width:20px;
+    height:20px;
+    background-color:rgb(0, 140, 255);
+}
+#minimap table tr .area-contested{
+    width:20px;
+    height:20px;
+    background-color:violet;
+}
+
+#minimap table tr .empty{
+    background-image: url("../img/minimap-crack.png"); /* A CSS file is linked, not included.*/
+    background-size: contain;
+}
+#minimap table tr .area-is-city{
+    background-image: url("../img/citadel-label.png"); 
+    background-size: contain;
+}
+#minimap table tr .area-is-dj-entry{
+    background-image: url("../img/cave-entry.png"); 
+    background-size: contain;
+}
+#minimap table tr .area-is-dj-exit{
+    background-image: url("../img/cave-entry.png"); 
+    background-size: contain;
+}
+#minimap table tr .area-is-dj2-entry{
+    background-image: url("../img/cave-entry.png"); 
+    background-size: contain;
+}
+#minimap table tr .area-is-dj2-exit{
+    background-image: url("../img/cave-entry.png"); 
+    background-size: contain;
+}
+#minimap table tr .area-is-hell-entry{
+    background-image: url("../img/cave-entry.png"); 
+    background-size: contain;
+}
+#minimap table tr .area-is-hell-exit{
+    background-image: url("../img/cave-entry.png"); 
+    background-size: contain;
+}
+#minimap table tr .area-is-camp{
+    background-image: url("../img/camp.png"); 
+    background-size: contain;
+}
+#minimap table tr .area-is-dj-camp{
+    background-image: url("../img/dj-camp-label.png");
+    background-size: contain;
+}
+#minimap table tr .area-is-player{
+    background-image: url("../img/ally.png"); 
+    background-size: contain;
+}
+
+
+#minimap tr td .tooltiptext{
+  visibility: hidden;
+  width: 150px;
+  background-color: #F5F5DC;
+  text-align: center;
+  border-radius: 6px;
+  border: 1px solid black;
+  padding: 5px 0;
+  margin-top:60px !important; /* The cursor won't entrer the tooltip */
+  margin-left:-20px !important; /* The cursor won't entrer the tooltip */
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+}
+
+#minimap tr td:hover .tooltiptext{
+  visibility: visible;
+}
+#minimap tr td .tooltiptext:hover{
+    visibility: hidden;
+}
+
+
+/*******************/
+/* MAP SIDE ARROWS */
+/*******************/
+
+#up-arrow { position:absolute; top:0px; left:100px; height:30px; width:300px; background-color: rgba(0,0,0,0.2); border-radius: 5px; }
+#up-arrow:hover {background-color:black; box-shadow: 3px 3px 5px grey;}
+
+#right-arrow { position:absolute; top:100px; left:472px; height:300px; width:30px; background-color: rgba(0,0,0,0.2); border-radius: 5px;}
+#right-arrow:hover {background-color:black; box-shadow: -3px 3px 5px grey;}
+
+#down-arrow { position:absolute; top:472px; left:100px; height:30px; width:300px; background-color: rgba(0,0,0,0.2); border-radius: 5px;}
+#down-arrow:hover {background-color:black; box-shadow: 3px -3px 5px grey;}
+
+#left-arrow { position:absolute; top:100px; left:0px; height:300px; width:30px;  background-color: rgba(0,0,0,0.2); border-radius: 5px;}
+#left-arrow:hover {background-color:black; box-shadow: 3px 3px 5px grey;}
+
+#up-left-arrow { position:absolute; top:0px; left:0px; height:50px; width:50px; background-color: rgba(0,0,0,0.2); border-radius: 5px;}
+#up-left-arrow:hover {background-color:black; box-shadow: 3px 3px 5px grey;}
+
+#down-left-arrow { position:absolute; top:452px; left:0px; height:50px; width:50px; background-color: rgba(0,0,0,0.2); border-radius: 5px;}
+#down-left-arrow:hover {background-color:black; box-shadow: 3px -3px 5px grey;}
+
+#up-right-arrow { position:absolute; top:0px; left:452px; height:50px; width:50px; background-color: rgba(0,0,0,0.2); border-radius: 5px;}
+#up-right-arrow:hover {background-color:black; box-shadow: -3px 3px 5px grey;}
+
+#down-right-arrow { position:absolute; top:452px; left:452px; height:50px; width:50px; background-color: rgba(0,0,0,0.2); border-radius: 5px;}
+#down-right-arrow:hover {background-color:black; box-shadow: -3px -3px 5px grey;}
+
+.flex-container-column {
+    display:flex;  
+    flex-direction: column; 
+    justify-content: center;
+}
+.flex-container-row {
+    display:flex;  
+    justify-content: center;
+}
+.flex-container-row div{
+    width:25px;
+    height:20px;
+    /* Align the divs inside the side buttons. Use margin:auto; to fully align every div in every direction. */
+    margin-top: auto; 
+    margin-bottom: auto;
+    margin-left: 10px;
+}
+.flex-container-column div{
+    width:20px;
+    height:20px;
+    margin-left: auto; 
+    margin-right: auto; 
+    margin-top:10px;
+}
+.foe-nbr{
+    text-align:center;
+    color:red;
+}
+.ally-nbr{
+    text-align:center;
+    color:rgb(0, 225, 255);
+}
+
+/*********/
+/* WALLS */
+/*********/
+
+#up-wall { position:absolute; top:0px; left:0px; height:30px; width:502px; background-color: black; border:1px solid black;}
+#right-wall { position:absolute; top:0px; left:472px; height:502px; width:30px; background-color: black; border:1px solid black;}
+#down-wall { position:absolute; top:472px; left:0px; height:30px; width:502px; background-color: black; border:1px solid black; }
+#left-wall { position:absolute; top:0px; left:0px; height:502px; width:30px; background-color: black; border:1px solid black;}
+
+#up-left-wall { position:absolute; top:0px; left:0px; height:50px; width:50px; background-color: black; border-top:1px solid black; border-left:1px solid black;}
+#down-left-wall { position:absolute; top:452px; left:0px; height:50px; width:50px; background-color: black; border-bottom:1px solid black; border-left:1px solid black;}
+#up-right-wall { position:absolute; top:0px; left:452px; height:50px; width:50px; background-color: black; border-top:1px solid black; border-right:1px solid black;}
+#down-right-wall { position:absolute; top:452px; left:452px; height:50px; width:50px; background-color: black; border-bottom:1px solid black; border-right:1px solid black;}
+
+
+

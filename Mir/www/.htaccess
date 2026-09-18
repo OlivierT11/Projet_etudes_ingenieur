@@ -1,0 +1,14 @@
+# Mise en place de la ré-écriture 
+Options +FollowSymLinks
+RewriteEngine On
+
+# Adresse de base de réécriture 
+RewriteBase /phpproject/hlproject/www
+
+# Règles
+RewriteCond %{SCRIPT_FILENAME} !-f
+RewriteCond %{SCRIPT_FILENAME} !-d
+RewriteRule (.*) index.php?p=$1 [QSA,L]
+#a activer sur le site OVH
+#RewriteCond %{SERVER_PORT} 80
+#RewriteRule ^(.*)$ https://%{SERVER_NAME}/dostest/hlproject/www/$1 [R,L]

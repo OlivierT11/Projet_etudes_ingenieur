@@ -1,0 +1,76 @@
+<?php class L {
+const test = 'Test en fr';
+const you_are_outside = 'Vous êtes dehors';
+const wood = 'Bois';
+const wood1 = 'Bois précieux';
+const orange = 'Orange';
+const honey = 'Miel';
+const baked_orange = 'Tarte aux fruits';
+const baked_honey = 'Miel raffiné';
+const cake = 'Gâteau';
+const upper = 'Armure haute';
+const lower = 'Armure basse';
+const helmet = 'Casque';
+const mask = 'Masque';
+const shield = 'Bouclier';
+const spear = 'Lance';
+const metal = 'Métal';
+const orange_dirt = 'Fruit planté';
+const orange_bush = 'Buisson';
+const orange_tree = 'Buisson avec fruits';
+const hive_dirt = 'Colonie d\'abeilles';
+const hive = 'Ruche';
+const hive_honey = 'Ruche à miel';
+const woodcutter_stat = 'Bûcheron';
+const atk_stat = 'Attaque';
+const def_stat = 'Protection';
+const explo_stat = 'Exploration';
+const supply_stat = 'Ravitaillement';
+const farm_stat = 'Récolte';
+const forge_pike_stat = 'Forge de lances';
+const forge_up_stat = 'Forge d\'armures';
+const forge_head_stat = 'Forge de casques';
+const forge_shield_stat = 'Forge de boucliers';
+const cook_orange_stat = 'Cuisine de fruits';
+const cook_honey_stat = 'Cuisine au miel';
+const woodcutter_stat_descr = 'Coupe des arbres.';
+const atk_stat_descr = 'Dégâts infligés aux ennemis.';
+const def_stat_descr = 'Protection contre les attaques.';
+const explo_stat_descr = 'Découvrir de nouvelles terres.';
+const supply_stat_descr = 'Transporter des ressources entre les avant-postes.';
+const farm_stat_descr = 'Faire pousser de la nourriture pour la communauté.';
+const forge_pike_stat_descr = 'Fabriquer des lames pour les soldats.';
+const forge_up_stat_descr = 'Fabriqer des armures hautes et basses.';
+const forge_head_stat_descr = 'Fabriquer des casques et masques blindés.';
+const forge_shield_stat_descr = 'Fabriquer des boucliers épais.';
+const cook_orange_stat_descr = 'Cuisiner des plats consistants qui rassasient.';
+const cook_honey_stat_descr = 'Cuisiner des plats sucrés qui remontent le moral.';
+const harvested_wood = 'Bois récolté';
+const harvested_rare_wood = 'Bois rare récolté';
+const oranges_harvested_outside = 'Oranges récoltées à l\'extérieur';
+const honey_harvested_outside = 'Miel récolté à l\'extérieur';
+const oranges_produced_in_farm = 'Oranges produites à la ferme';
+const honey_producted_in_farm = 'Miel produit à la ferme';
+const shadows_slained = 'Ombres vaincues';
+const unexplored_regions_discovered = 'Régions inexplorées découvertes';
+const resources_given_to_city = 'Ressources données à la ville';
+const upper_armors_crafted = 'Hauts d\'armure fabriqués';
+const lower_armors_crafted = 'Armures basses fabriquées';
+const helmets_crafted = 'Casques fabriqués';
+const reinforced_masks_crafted = 'Masques blindés équipés';
+const shields_crafted = 'Boucliers fabriqués';
+const spears_crafted = 'Lances fabriquées';
+const oranges_baked = 'Oranges cuisinées';
+const honey_refined = 'Miel raffiné';
+const cakes_baked = 'Gateaux cuisinés';
+const caves_discovered = 'Cavernes découvertes';
+const metal_looted_on_shadows = 'Métaux obtenus sur les Ombres';
+const hazardous_areas_avoided_by_camouflage = 'Zones dangereuses passées en se camouflant';
+public static function __callStatic($string, $args) {
+    return vsprintf(constant("self::" . $string), $args);
+}
+}
+function L($string, $args=NULL) {
+    $return = constant("L::".$string);
+    return $args ? vsprintf($return,$args) : $return;
+}

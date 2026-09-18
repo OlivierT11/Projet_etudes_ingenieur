@@ -1,0 +1,2416 @@
+
+/* GENERAL */
+.clear-float{
+	clear:both;
+  }
+  
+* {
+  	box-sizing: border-box;
+  	font-family: -apple-system, BlinkMacSystemFont, "segoe ui", roboto, oxygen, ubuntu, cantarell, "fira sans", "droid sans", "helvetica neue", Arial, sans-serif;
+  	font-size: 16px;
+}
+
+/* Center the placeholder text in all inputs */
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  text-align: center;
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  text-align: center;
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+  text-align: center;
+}
+
+
+/* Login */
+#login-wrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -100px; /* Negative half of height. */
+  margin-left: -200px; /* Negative half of width. */
+  padding: 20px 20px 50px 20px;
+  border-radius: 10px;
+  border : 2px solid black;
+  width: 400px;
+  background-color: #ffffff;
+  box-shadow: 0 0 9px 0 rgba(0, 0, 0, 0.3);
+}
+.login h1 {
+  	text-align: center;
+  	color: #5b6574;
+  	font-size: 24px;
+  	padding: 20px 0 20px 0;
+}
+.login small {
+  text-align: center;
+  color: #5b6574;
+  font-size: 10px;
+  padding: 0 20px 20px 20px;
+}
+.login form {
+  	display: flex;
+  	flex-wrap: wrap;
+  	justify-content: center;
+  	padding-top: 20px;
+}
+/* .login form label {
+  	display: flex;
+  	justify-content: center;
+  	align-items: center;
+  	width: 50px;
+  	height: 50px;
+  	background-color: #3274d6;
+  	color: #ffffff;
+} */
+.login form input[type="password"], .login form input[type="text"] {
+  	width: 310px;
+  	height: 50px;
+  	border: 1px solid #dee0e4;
+  	margin-bottom: 20px;
+  	padding: 0 15px;
+}
+.login form input[type="submit"] {
+  	width: 100%;
+  	padding: 15px;
+ 	  margin-top: 20px;
+  	/* background-color: #3274d6; */
+    background-color: greenyellow;
+  	border: 0;
+  	cursor: pointer;
+  	font-weight: bold;
+  	color: #ffffff;
+  	transition: background-color 0.2s;
+}
+.login form input[type="submit"]:hover {
+	/* background-color: #2868c7; */
+	  background-color: rgb(107, 205, 50);
+    transition: background-color 0.2s;
+}
+#login-video-wrapper {
+  /* position: fixed;
+  left: 0;
+  top: 0; */
+  height: 100vh; 
+  /* min-height: 100%;  */
+  width: 100%;
+  z-index: -1;
+  border-bottom: 2px solid black;
+}
+#login-video {
+  object-fit: cover;
+}
+#game-presentation-wrapper {
+  width: 100%;
+  height:auto;
+  background-color: #f5f5dc;;
+  /* background-color: yellowgreen; */
+  padding: 20px 50px;
+}
+
+/* Remove scrollbar for proper video display (while conserving scroll function) */
+ /* Hide scrollbar for Chrome, Safari and Opera */
+ .no-scrollbar-element::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.no-scrollbar-element {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+} 
+
+/***************************/
+/* ADMIN & CITY GENERATION */
+/***************************/
+
+#maze {
+  border-collapse: collapse;
+}
+#maze td {
+  width: 20px;
+  height: 20px;
+}
+
+/*******************************/
+/* GENERAL ELEMENT POSITIONING */
+/*******************************/
+
+body
+{
+  /*background-color: rgb(144, 197, 44);*/
+  background-color: #f5f5dc;
+}
+
+/* LEFT IMG */
+
+#left-img img {
+  max-width:100%; /* to make the image width fit the div https://stackoverflow.com/questions/3029422/how-do-i-auto-resize-an-image-to-fit-a-div-container */
+  height:100%; /* to stretch the img height to fit the div https://stackoverflow.com/questions/16501668/stretch-image-to-fit-100-of-div-height-and-width */
+ /* max-height:auto; /* to make the img height keep the img proportions with the width */
+}
+
+/* RIGHT IMG */
+
+#right-img img {
+  max-width:100%; /* to make the image width fit the div https://stackoverflow.com/questions/3029422/how-do-i-auto-resize-an-image-to-fit-a-div-container */
+  height:100%;
+}
+
+/* NAVBAR */
+
+#navbar{
+  height:64px; /* auto does not work because of child padding. Possible fix : https://stackoverflow.com/questions/485827/css-100-height-with-padding-margin */
+  background-color: olivedrab;
+}
+#navbar ul {
+  list-style-type: none !important; /* retire les puces de la liste. Les 3 sont nécessaires*/
+  margin: 0 !important; 
+  padding: 0 !important;
+}
+#navbar ul li {
+  float: left;
+  width: 25%;
+  box-shadow: 10px 0 8px -8px darkslategrey; /* Box shadow seulement sur les cotés : https://stackoverflow.com/questions/11997032/how-to-get-box-shadow-on-left-right-sides-only */
+}
+#navbar ul li:hover {
+background-color: #111;
+}
+#navbar ul li a {
+  display: block;
+  text-align:center;
+  padding-top:20px; /* mettre un padding au "a" et non au "li" permet d'étendre la zone de clic du lien */
+  padding-bottom:20px;
+  text-decoration: none; /* retire l'effet de lien (bleu + souligné) */
+}
+
+/*  MAIN CONTENT */
+
+#left-menu{
+  float: left;
+  width: 20%; /*responsive value : 16.66% but a bit small maybe */
+  height:auto;
+}
+/* Center content of there is a left menu (almost every page)  */
+#center-content{
+  float: left;
+  width: 80%;  /*responsive value : 83.33% */
+  height:auto;
+  margin-top:13px;
+}
+/*#right-menu{
+  float: left;
+  width: 16.66%;
+  height:auto;
+}*/
+
+#left-img {
+  /* float: left; */
+  position:fixed;
+  box-sizing: border-box;
+  top:0;
+  left:0;
+  /* width: 16.66%; */
+  width:320px; /* 1920/6 */
+  height:100vh; /* 100% de l'écran (Viewport-Percentage) */
+  border-right: 1px solid black;
+  /* background:url(../img/grass-texture.jpg); */
+}
+
+#center-div{
+  /* box-sizing: border-box; */
+  /* border-left:1px solid black;
+  border-right: 1px solid black; */
+  /* float: left; */
+  /* width: 66.66%; */
+  padding:0 320px 0 320px;
+  /* margin-left:320px;  */
+  min-height:100vh;
+}
+
+#right-img{
+  /* float: left; */
+  /* width: 16.66%; */
+  position: fixed;
+  top:0;
+  right:0;
+  box-sizing: border-box;
+  width: 320px; /* 1920/6 */
+  height:1200px;
+  border-left:1px solid black;
+}
+
+
+/* LEFT IMG */
+
+#left-img img {
+  width:100%; /* to make the image width fit the div https://stackoverflow.com/questions/3029422/how-do-i-auto-resize-an-image-to-fit-a-div-container */
+  height:100%; /* to stretch the img height to fit the div https://stackoverflow.com/questions/16501668/stretch-image-to-fit-100-of-div-height-and-width */
+ /* max-height:auto; /* to make the img height keep the img proportions with the width */
+}
+
+/* RIGHT IMG */
+
+#right-img img {
+  width:100%; /* to make the image width fit the div https://stackoverflow.com/questions/3029422/how-do-i-auto-resize-an-image-to-fit-a-div-container */
+  height:100%;
+}
+
+/* NAVBAR */
+
+/* .navbar-wrapper{
+  position: fixed;
+  top:0;
+  width: auto;
+} */
+#navbar{
+  height:64px; /* auto does not work because of child padding. Possible fix : https://stackoverflow.com/questions/485827/css-100-height-with-padding-margin */
+  background-color: olivedrab;
+}
+#navbar ul {
+  list-style-type: none !important; /* retire les puces de la liste. Les 3 sont nécessaires*/
+  margin: 0 !important; 
+  padding: 0 !important;
+}
+#navbar ul li {
+  float: left;
+  width: 25%;
+  box-shadow: 10px 0 8px -8px darkslategrey; /* Box shadow seulement sur les cotés : https://stackoverflow.com/questions/11997032/how-to-get-box-shadow-on-left-right-sides-only */
+}
+#navbar ul li:hover {
+background-color: #111;
+}
+#navbar ul li a {
+  display: block;
+  text-align:center;
+  padding-top:20px; /* mettre un padding au "a" et non au "li" permet d'étendre la zone de clic du lien */
+  padding-bottom:20px;
+  text-decoration: none; /* retire l'effet de lien (bleu + souligné) */
+}
+.dropdown-menu
+{
+  background-color: #f5f5dc; 
+}
+.dropdown-item:hover
+{
+  background-color: #d3d3c3; 
+}
+#btn-toggle-left-menu
+{
+  display: none;
+}
+
+/* NAVBAR */
+
+#navbar{
+  height:64px; /* auto does not work because of child padding. Possible fix : https://stackoverflow.com/questions/485827/css-100-height-with-padding-margin */
+  background-color: olivedrab;
+}
+#navbar ul {
+  list-style-type: none !important; /* retire les puces de la liste. Les 3 sont nécessaires*/
+  margin: 0 !important; 
+  padding: 0 !important;
+}
+#navbar ul li {
+  float: left;
+  width: 25%;
+  box-shadow: 10px 0 8px -8px darkslategrey; /* Box shadow seulement sur les cotés : https://stackoverflow.com/questions/11997032/how-to-get-box-shadow-on-left-right-sides-only */
+}
+#navbar ul li:hover {
+background-color: #111;
+}
+#navbar ul li a {
+  display: block;
+  text-align:center;
+  padding-top:20px; /* mettre un padding au "a" et non au "li" permet d'étendre la zone de clic du lien */
+  padding-bottom:20px;
+  text-decoration: none; /* retire l'effet de lien (bleu + souligné) */
+}
+.dropdown-menu
+{
+  background-color: #f5f5dc; 
+}
+.dropdown-item:hover
+{
+  background-color: #d3d3c3; 
+}
+
+/*  MAIN CONTENT */
+
+#left-menu{
+  float: left;
+  width: 20%; /*responsive value : 16.66% but a bit small maybe */
+  height:auto;
+}
+/* Center content of there is a left menu (almost every page)  */
+#center-content{
+  float: left;
+  width: 80%;  /*responsive value : 83.33% */
+  height:auto;
+  margin-top:13px;
+}
+/*#right-menu{
+  float: left;
+  width: 16.66%;
+  height:auto;
+}*/
+/* Center content if there is no left menu ("info" screens : account, statistics)  */
+
+/* TABLES */
+
+table {
+  border-collapse: collapse;
+}
+
+table, th, td {
+  border: 1px solid rgb(49, 49, 49);
+}
+
+
+  /*  PLAYER OBJ  */
+  
+  #player-wrapper{
+	  height:50px;
+	  width:200px;
+	  border-radius: 15px;
+	  background: rgb(80, 207, 21);
+	  padding: 5px; 
+	  box-shadow: 2px 2px 5px grey;
+  }
+  
+  #name-title-city{
+	  height:25px;
+	  width:200px;
+	  background: rgb(235, 2, 2);
+  
+	  border-bottom: 1px solid grey;
+  }
+  
+  #name-title-city p{
+	  display:inline;
+  }
+  
+  #mastery-stat-lvl-thumbs{
+	  height:25px;
+	  width:200px;
+	  background: rgb(220, 235, 2);
+  }
+  
+  #mastery-stat-lvl-thumbs div{
+	  display:inline-block;
+  }
+  .mastery-img{
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	width: 40%;
+  }
+  
+  #mastery-stat-lvl{
+	  height:25px;
+	  width:70%;
+	  background: rgb(2, 200, 235);
+	  
+	  border-right: 1px solid grey;
+  }
+  
+  #thumbs{
+	  height:25px;
+	  width:30%;
+	  background: rgb(96, 146, 211);
+  }
+  
+  .thumb-img{
+	  display: block;
+	  margin-left: auto;
+	  margin-right: auto;
+	  width: 40%;
+  }
+  
+
+  /*  MENU BUTTON LEFT*/
+  
+#menubutton-left{
+height:auto;
+width:auto; /*Laisser en auto pour mettre un padding sur un élément enfant*/
+background-color: #5c821a;
+border: 2px solid black;
+border-radius: 10px;
+margin:20px;
+box-shadow: 3px 3px 5px grey;
+}
+#menubutton-left ul{
+list-style-type: none;
+margin: 0;
+padding: 0; /* Utiliser ces 3 ensemble impérativement pour supprimer les valeurs par défaut de la liste */
+}
+#menubutton-left ul li {
+background-color: #C6D166;
+margin: 5px; /* Extérieur du container */
+text-align:center; /* Aligne le texte CONTENU. A mettre sur un élément conteneur */
+border: 1px solid black;
+border-radius: 5px;
+}
+#menubutton-left ul li:hover {
+background: #99CD30;
+/*box-shadow: inset 2px -7px 11px rgba(80, 92, 51, 0.17);*/
+box-shadow: 1px 1px 5px grey;
+}
+#menubutton-left ul li:active{
+border-bottom-color: #999;
+box-shadow: inset 0 3px 3px rgba(0, 0, 0, .2) !important;    
+}
+#menubutton-left ul li a {
+text-decoration:none;
+display:inline-block !important; /* Transforme un lien en BLOCK. Obligatoire pour lui donner un padding top et bottom */
+padding-left: 30px; /* A régler */
+padding-right: 30px; /* A régler */
+padding-top:5px;
+padding-bottom:5px;
+}
+#menubutton-left ul li span {
+color:black;
+font-weight: bold;
+font-family:Arial;
+}
+
+/* removing the default button style in left menu, to match the link design */
+.btn-left-menu {
+  border:none;
+  background-color: #C6D166;
+  padding-top:5px;
+  padding-bottom:5px;
+}
+#menubutton-left ul li:hover .btn-left-menu {
+  background: #99CD30;
+  box-shadow: inset 2px -7px 11px rgba(80, 92, 51, 0.17);
+}
+  
+/**************/
+/*  LIFE BARS */
+/**************/
+
+#life_bars{
+	clear:both; /* supprime l'effet du float : les éléments suivants sont placés à la suite, non à côté du flottant */
+	width:auto;
+	height:auto;
+	background-color: rgb(162, 230, 46);
+  border:2px solid black;
+  border-radius: 5px;
+  margin:20px;
+  box-shadow: 3px 3px 5px grey;
+  }
+  
+  /*  FOOD  */
+  
+  #food_text{
+	padding-left:5px;
+	padding-top:5px;
+	padding-bottom:5px;
+  }
+  
+  #food_bar_wrapper{
+	height:auto;
+	width:100%;
+  }
+  #food_bar{
+	border-bottom: 1px solid grey;
+  }
+  #food_icon_wrapper{
+	background:url(../img/cake-small.png) no-repeat center center; /*  Centrer une img dans une div  */
+	height:50px;
+	width:50px;
+	box-shadow: 10px 0 8px -8px grey; 
+	display: inline-block;
+  }
+  #food_bar_display{
+	width:145px;
+	height:50px;
+  display: inline-block;
+  }
+  #food_bar_full{
+	width:120px;
+	height:30px;
+	margin: 0 auto;  /*  Centre la div horizontalement dans la div parente. Vertical ne fonctionne pas sans flexbox https://stackoverflow.com/questions/6490252/vertically-centering-a-div-inside-another-div  */
+	margin-top:10px;
+	margin-bottom:10px;
+  background-color: #e5cd2d;
+  border:1px solid black;
+  border-radius: 5px;
+  }
+  #food_bar_current{
+	width:80%;
+	height:100%;
+	background-color: #e5712d;
+  }
+  /*
+  #food_bar_text{
+	width:80%;
+	height:100%;
+	text-align: center;
+  }*/
+  
+  
+  
+  /*  MORALE  */
+  
+  #morale_text{
+	padding-left:5px;
+	padding-top:5px;
+	padding-bottom:5px;
+  }
+  
+  #morale_bar_wrapper{
+	height:auto;
+	width:100%;
+  }
+  #morale_bar{
+	border-bottom: 1px solid grey;
+  }
+  #morale_icon_wrapper{
+	background:url(../img/fire.png) no-repeat center center; /*  Centrer une img dans une div  */
+	height:50px;
+	width:50px;
+	box-shadow: 10px 0 8px -8px grey; 
+	display: inline-block;
+  }
+  #morale_bar_display{
+	width:145px;
+	height:50px;
+	display: inline-block;
+  }
+  #morale_bar_full{
+	width:120px;
+	height:30px;
+	margin: 0 auto;  /*  Centre la div horizontalement dans la div parente. Vertical ne fonctionne pas sans flexbox https://stackoverflow.com/questions/6490252/vertically-centering-a-div-inside-another-div  */
+	margin-top:10px;
+	margin-bottom:10px;
+  background-color: #e5cd2d;
+  border:1px solid black;
+  border-radius: 5px;
+  }
+  #morale_bar_current{
+	width:80%; /*Nécessaire ?*/
+	height:100%;
+	background-color: #e5712d;
+  }
+  /*
+  #morale_bar_text{
+	width:80%;
+	height:100%;
+	text-align: center;
+  }*/
+  
+  
+  
+  /*  SHIELD  */
+  
+  #shield_text{
+	padding-left:5px;
+	padding-top:5px;
+	padding-bottom:5px;
+  }
+  
+  #shield_bar_wrapper{
+	height:auto;
+	width:100%;
+  }
+  #shield_bar{
+	border-bottom: 1px solid grey;
+  }
+  #shield_icon_wrapper{
+	background:url(../img/shield.png) no-repeat center center; /*  Centrer une img dans une div  */
+	height:50px;
+	width:50px;
+	box-shadow: 10px 0 8px -8px grey; 
+	display: inline-block;
+  }
+  #shield_bar_display{
+	width:145px;
+	height:50px;
+  display: inline-block;
+  }
+  #shield_bar_full{
+	width:120px;
+	height:30px;
+	margin: 0 auto;  /*  Centre la div horizontalement dans la div parente. Vertical ne fonctionne pas sans flexbox https://stackoverflow.com/questions/6490252/vertically-centering-a-div-inside-another-div  */
+	margin-top:10px;
+	margin-bottom:10px;
+  background-color: #e5cd2d;
+  border:1px solid black;
+  border-radius: 5px;
+  }
+  #shield_bar_current{
+	width:80%;
+	height:100%;
+	background-color: #e5712d;
+  }
+  /*
+  #shield_bar_text{
+	width:80%;
+	height:100%;
+	text-align: center;
+  }*/
+
+   /*  SPEAR  */
+  
+   #spear_text{
+    padding-left:5px;
+    padding-top:5px;
+    padding-bottom:5px;
+    }
+    
+    #spear_bar_wrapper{
+    height:auto;
+    width:100%;
+    }
+    #spear_bar{
+    border-bottom: 1px solid grey;
+    }
+    #spear_icon_wrapper{
+    background:url(../img/spear-bar.png) no-repeat center center; /*  Centrer une img dans une div  */
+    height:50px;
+    width:50px;
+    box-shadow: 10px 0 8px -8px grey; 
+    display: inline-block;
+    }
+    #spear_bar_display{
+    width:145px;
+    height:50px;
+    display: inline-block;
+    }
+    #spear_bar_full{
+    width:120px;
+    height:30px;
+    margin: 0 auto;  /*  Centre la div horizontalement dans la div parente. Vertical ne fonctionne pas sans flexbox https://stackoverflow.com/questions/6490252/vertically-centering-a-div-inside-another-div  */
+    margin-top:10px;
+    margin-bottom:10px;
+    background-color: #e5cd2d;
+    border:1px solid black;
+    border-radius: 5px;
+    }
+    #spear_bar_current{
+    width:80%;
+    height:100%;
+    background-color: #e5712d;
+    }
+    /*
+    #shield_bar_text{
+    width:80%;
+    height:100%;
+    text-align: center;
+    }*/
+  
+  
+  /*  ARMORS  */
+  
+  #armors_text{
+	padding-left:5px;
+	padding-top:5px;
+	padding-bottom:5px;
+  }
+  
+  #armors_bar_wrapper{
+	height:auto;
+	width:100%;
+  }
+  #armors_bar{
+	border-bottom: 1px solid grey;
+  }
+  #armors_icon_wrapper{
+	background:url(../img/armor.png) no-repeat center center; /*  Centrer une img dans une div  */
+	height:50px;
+	width:50px;
+	box-shadow: 10px 0 8px -8px grey; 
+	display: inline-block;
+  }
+  #armors_bar_display{
+	width:145px;
+	height:50px;
+  display: inline-block;
+  padding:10px;
+  }
+  #upper_bar_full{
+  float:left;
+	width:25%;
+	height:30px;
+	background-color: #e5cd2d;
+  border: 1px solid black;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  }
+  #upper_bar_current{
+    width:80%;
+    height:100%;
+    background-color: #e5712d;
+  }
+  #lower_bar_full{
+    float:left;
+	width:25%;
+  height:30px;
+  background-color: #e5cd2d;
+  border: 1px solid black;
+  }
+  #lower_bar_current{
+    width:80%;
+    height:100%;
+    background-color: #e5712d;
+  }
+  #helmet_bar_full{
+    float:left;
+    width:25%;
+    height:30px;
+    background-color: #e5cd2d;
+    border: 1px solid black;
+  }
+  #helmet_bar_current{
+    width:80%;
+    height:100%;
+    background-color: #e5712d;
+  }
+  #mask_bar_full{
+    float:left;
+    width:25%;
+    height:30px;
+    background: #e5cd2d;
+    border: 1px solid black;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+  }
+  #mask_bar_current{
+    width:80%;
+    height:100%;
+    background-color: #e5712d;
+  }
+  
+  
+/*******************/
+/*  INVENT PLAYER  */
+/*******************/
+
+#wrapper-invent-player-equip{
+  position:relative !important; /*obligatoire si on veut que les éléments fils soient position:absolute*/
+  float:left;
+  height:309px;
+  width:78%;
+  background-color: rgb(217, 255, 0);
+  border:2px solid black;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  padding:10px;
+  overflow-x:hidden;
+  overflow-y:auto;
+}
+
+#invent-player{
+  height:100% !important; /* prevent little invent if few items in it */
+  overflow-y:auto;
+  overflow-x:hidden;
+}
+
+#wrapper-invent-for-tooltip{
+  width:100%;
+  height:100%;
+  padding-left:15px;
+  overflow-y:hidden;
+}
+
+#wrapper-invent-player-for-treasure-room{
+  position:relative !important; /*obligatoire si on veut que les éléments fils soient position:absolute*/
+  float:left;
+  height:309px;
+  width:98%;
+  background-color: rgb(217, 255, 0);
+  border:2px solid black;
+  border-radius: 5px;
+  box-shadow: 3px 3px 5px grey;
+  padding:10px;
+  overflow-x:hidden;
+  overflow-y:auto;
+}
+
+
+/******************************/
+/* INVENT PLAYER SIDE FOR MAP */
+/******************************/
+
+#player-invent-side{
+  float:left;
+  width:50%;
+  overflow:auto;
+}
+#wrapper-invent-player-equip-side{
+  position:relative !important; /*obligatoire si on veut que les éléments fils soient position:absolute*/
+  height:504px;
+  width:92%;
+  background-color: rgb(217, 255, 0);
+  border:2px solid black;
+  border-radius: 5px;
+  box-shadow: 3px 3px 5px grey;
+  padding:10px;
+  margin-left:20px;
+  overflow-x:hidden;
+  overflow-y:auto;
+}
+
+
+/*******************/
+/*  INVENT CITY  */
+/*******************/
+
+#invent-city{
+  position:relative;
+  height:350px;
+  width:98%;
+  background-color: rgb(217, 255, 0);;
+  border:2px solid black;
+  border-radius: 5px;
+  padding:10px;
+  overflow:auto;
+}
+
+#give-all-to-city{
+  border: 1px solid black;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 40%;
+}
+
+#wrapper-invent-city-for-treasure-room{
+  position:relative;
+  height:600px;
+  width:98%;
+  background-color: rgb(217, 255, 0);
+  border:2px solid black;
+  border-radius: 5px;
+  padding:10px;
+  overflow:auto;
+}
+/*******************/
+/*  INVENT EQUIP  */
+/*******************/
+
+#equip-shield,
+#equip-upper,
+#equip-lower,
+#equip-helmet,
+#equip-mask,
+#equip-spear
+
+{
+  position:relative; /* pour utiliser position: absolute sur les enfants */
+  display:inline-block;
+  height:50px;
+  width:50px;
+  box-shadow: 1px 1px 5px grey;
+  /*padding:10px; */
+}
+
+/* Mettre une image de l'item en silhouette (équipement et materiau craft) */
+#equip-shield{
+  background:gold url(../img/shield-shape.png) no-repeat; 
+  background-size: 80%;
+  margin-bottom:5px;
+}
+#equip-upper{
+  background:gold url(../img/upper-shape.png) no-repeat;
+  background-size: 80%; 
+  margin-bottom:5px;
+}
+#equip-lower{
+  background:gold url(../img/lower-shape.png) no-repeat; 
+  background-size: 80%;
+  margin-bottom:5px;
+}
+#equip-helmet{
+  background:gold url(../img/helmet-shape.png) no-repeat;
+  background-size: 80%; 
+  margin-bottom:5px;
+}
+#equip-mask{
+  background:gold url(../img/mask-shape.png) no-repeat; 
+  background-size: 80%;
+  margin-bottom:5px;
+}
+#equip-spear{
+  background:gold url(../img/spear-shape.png) no-repeat; 
+  background-size: 80%;
+  margin-bottom:5px;
+}
+
+.item{
+  margin-bottom:1px;
+}
+
+.item-void{ /* "empty" item to fill items for max-invent */
+  /*box-shadow: 1px 1px 5px grey;*/
+  height:50px;
+  width:50px;
+  display:inline-block;
+  border: 1px solid black;
+  margin-right: 5px;
+}
+.item-wood{
+  height:50px;
+  width:50px;
+  display:inline-block;
+  cursor: pointer;
+  border: 1px solid black;
+  margin-right: 5px;
+  position: relative !important; /* Mandatory to make children absolute (to allow stacking of div) */
+  box-shadow: 1px 1px 5px grey;
+}
+/* Used to display the background image on top of the durability and lvl.*/
+.item-wood:after {
+  content: '';
+  position: absolute;
+  top: 0; right: 0;
+  bottom: 0; left: 0;
+  background:url(../img/wood.png) no-repeat;  /* Add "center center" to center*/
+  background-size: 80%;
+}
+.item-wood1{
+  height:50px;
+  width:50px;
+  display:inline-block;
+  cursor: pointer;
+  border: 1px solid black;
+  margin-right: 5px;
+  position: relative;
+  box-shadow: 1px 1px 5px grey;
+}
+.item-wood1:after {
+  content: '';
+  position: absolute;
+  top: 0; right: 0;
+  bottom: 0; left: 0;
+  background:url(../img/wood1.png) no-repeat; 
+  background-size: 80%;
+}
+.item-rock{
+  height:50px;
+  width:50px;
+  display:inline-block;
+  cursor: pointer;
+  border: 1px solid black;
+  margin-right: 5px;
+  position: relative;
+  box-shadow: 1px 1px 5px grey;
+}
+.item-rock:after {
+  content: '';
+  position: absolute;
+  top: 0; right: 0;
+  bottom: 0; left: 0;
+  background:url(../img/rock.png) no-repeat;
+  background-size: 80%;
+}
+.item-shield{
+  height:50px;
+  width:50px;
+  display:inline-block;
+  cursor: pointer;
+  border: 1px solid black;
+  margin-right: 5px;
+  position: relative;
+  box-shadow: 1px 1px 5px grey;
+}
+.item-shield:after {
+  content: '';
+  position: absolute;
+  top: 0; right: 0;
+  bottom: 0; left: 0;
+  background:url(../img/shield.png) no-repeat;
+  background-size: 80%;
+}
+.item-upper{
+  height:50px;
+  width:50px;
+  display:inline-block;
+  cursor: pointer;
+  border: 1px solid black;
+  margin-right: 5px;
+  position: relative;
+  box-shadow: 1px 1px 5px grey;
+}
+.item-upper:after {
+  content: '';
+  position: absolute;
+  top: 0; right: 0;
+  bottom: 0; left: 0;
+  background:url(../img/upper.png) no-repeat;
+  background-size: 80%;
+}
+.item-lower{
+  height:50px;
+  width:50px;
+  display:inline-block;
+  cursor: pointer;
+  border: 1px solid black;
+  margin-right: 5px;
+  position: relative;
+  box-shadow: 1px 1px 5px grey;
+}
+.item-lower:after {
+  content: '';
+  position: absolute;
+  top: 0; right: 0;
+  bottom: 0; left: 0;
+  background:url(../img/lower.png) no-repeat;
+  background-size: 80%;
+}
+.item-helmet{
+  height:50px;
+  width:50px;
+  display:inline-block;
+  cursor: pointer;
+  border: 1px solid black;
+  margin-right: 5px;
+  position: relative;
+  box-shadow: 1px 1px 5px grey;
+}
+.item-helmet:after {
+  content: '';
+  position: absolute;
+  top: 0; right: 0;
+  bottom: 0; left: 0;
+  background:url(../img/helmet.png) no-repeat;
+  background-size: 80%;
+}
+.item-mask{
+  height:50px;
+  width:50px;
+  display:inline-block;
+  cursor: pointer;
+  border: 1px solid black;
+  margin-right: 5px;
+  position: relative;
+  box-shadow: 1px 1px 5px grey;
+}
+.item-mask:after {
+  content: '';
+  position: absolute;
+  top: 0; right: 0;
+  bottom: 0; left: 0;
+  background:url(../img/mask.png) no-repeat;
+  background-size: 80%;
+}
+.item-spear{
+  height:50px;
+  width:50px;
+  display:inline-block;
+  cursor: pointer;
+  border: 1px solid black;
+  margin-right: 5px;
+  position: relative;
+  box-shadow: 1px 1px 5px grey;
+}
+.item-spear:after {
+  content: '';
+  position: absolute;
+  top: 0; right: 0;
+  bottom: 0; left: 0;
+  background:url(../img/spear.png) no-repeat;
+  background-size: 80%;
+}
+.item-orange{
+  height:50px;
+  width:50px;
+  display:inline-block;
+  cursor: pointer;
+  border: 1px solid black;
+  margin-right: 5px;
+  position: relative;
+  box-shadow: 1px 1px 5px grey;
+}
+.item-orange:after {
+  content: '';
+  position: absolute;
+  top: 0; right: 0;
+  bottom: 0; left: 0;
+  background:url(../img/orange.png) no-repeat;
+  background-size: 80%;
+}
+.item-honey{
+  height:50px;
+  width:50px;
+  display:inline-block;
+  cursor: pointer;
+  border: 1px solid black;
+  margin-right: 5px;
+  position: relative;
+  box-shadow: 1px 1px 5px grey;
+}
+.item-honey:after {
+  content: '';
+  position: absolute;
+  top: 0; right: 0;
+  bottom: 0; left: 0;
+  background:url(../img/honey.png) no-repeat;
+  background-size: 80%;
+}
+.item-baked_orange{
+  height:50px;
+  width:50px;
+  display:inline-block;
+  cursor: pointer;
+  border: 1px solid black;
+  margin-right: 5px;
+  position: relative;
+  box-shadow: 1px 1px 5px grey;
+}
+.item-baked_orange:after {
+  content: '';
+  position: absolute;
+  top: 0; right: 0;
+  bottom: 0; left: 0;
+  background:url(../img/baked-orange.png) no-repeat;
+  background-size: 80%;
+}
+.item-baked_honey{
+  height:50px;
+  width:50px;
+  display:inline-block;
+  cursor: pointer;
+  border: 1px solid black;
+  margin-right: 5px;
+  position: relative;
+  box-shadow: 1px 1px 5px grey;
+}
+.item-baked_honey:after {
+  content: '';
+  position: absolute;
+  top: 0; right: 0;
+  bottom: 0; left: 0;
+  background:url(../img/baked-honey.png) no-repeat;
+  background-size: 80%;
+}
+.item-cake{
+  height:50px;
+  width:50px;
+  display:inline-block;
+  cursor: pointer;
+  border: 1px solid black;
+  margin-right: 5px;
+  position: relative;
+  box-shadow: 1px 1px 5px grey;
+}
+.item-cake:after {
+  content: '';
+  position: absolute;
+  top: 0; right: 0;
+  bottom: 0; left: 0;
+  background:url(../img/cake.png) no-repeat;
+  background-size: 80%;
+}
+
+/* Rare items  */
+.item-metal{
+  height:50px;
+  width:50px;
+  display:inline-block;
+  cursor: pointer;
+  border: 1px solid black;
+  margin-right: 5px;
+  margin-bottom:1px;
+  position: relative;
+}
+.item-metal:after {
+  content: '';
+  position: absolute;
+  top: 0; right: 0;
+  bottom: 0; left: 0;
+  background:url(../img/metal.png) no-repeat;
+  background-size: 80%;
+}
+
+/* Farm items (no tooltip, no durability, lvl on item)*/
+.item-orange_dirt,
+.item-hive_dirt{
+  background:url(../img/dirt.png) no-repeat center center;
+  height:50px;
+  width:50px;
+  display:inline-block;
+  cursor: pointer;
+  border: 1px solid black;
+  margin-right: 5px;
+  margin-bottom:1px;
+  position: relative;
+}
+.item-orange_bush{
+  background:url(../img/tree.png) no-repeat center center;
+  height:50px;
+  width:50px;
+  display:inline-block;
+  cursor: pointer;
+  border: 1px solid black;
+  margin-right: 5px;
+  margin-bottom:1px;
+  position: relative;
+}
+.item-orange_tree{
+  background:url(../img/orange-tree.png) no-repeat center center;
+  height:50px;
+  width:50px;
+  display:inline-block;
+  cursor: pointer;
+  border: 1px solid black;
+  margin-right: 5px;
+  margin-bottom:1px;
+  position: relative;
+}
+.item-hive{
+  background:url(../img/hive.png) no-repeat center center;
+  background-size:90%;
+  height:50px;
+  width:50px;
+  display:inline-block;
+  cursor: pointer;
+  border: 1px solid black;
+  margin-right: 5px;
+  margin-bottom:1px;
+  position: relative;
+}
+.item-hive_honey{
+  background:url(../img/hive-honey.png) no-repeat center center;
+  background-size:90%;
+  height:50px;
+  width:50px;
+  display:inline-block;
+  cursor: pointer;
+  border: 1px solid black;
+  margin-right: 5px;
+  margin-bottom:1px;
+  position: relative;
+}
+
+
+/* graphic add-on to items */
+.item-life-box{
+  position:absolute; 
+  background-color:red; 
+  height:100%; 
+}
+.item-lvl-box{
+  position:absolute;
+  bottom:0px;
+  right:0px;
+  line-height: 14px;
+}
+
+
+/**************/
+/*  TOOLTIPS  */
+/**************/
+	
+  .item-wood .tooltiptext,
+  .item-wood1 .tooltiptext,
+  .item-orange .tooltiptext,
+  .item-honey .tooltiptext,
+  .item-baked_honey .tooltiptext,
+  .item-baked_orange .tooltiptext,
+  .item-cake .tooltiptext,
+  .item-upper .tooltiptext,
+  .item-lower .tooltiptext,
+  .item-helmet .tooltiptext,
+  .item-mask .tooltiptext,
+  .item-shield .tooltiptext,
+  .item-spear .tooltiptext,
+  .item-orange_dirt .tooltiptext,
+  .item-hive_dirt .tooltiptext,
+  .item-orange_bush .tooltiptext,
+  .item-orange_tree .tooltiptext,
+  .item-hive .tooltiptext,
+  .item-hive_honey .tooltiptext,
+  .item-metal .tooltiptext
+   {
+	visibility: hidden;
+	width: 100px;
+	background-color: #F5F5DC;
+	text-align: center;
+	border-radius: 6px;
+	border: 1px solid black;
+  padding: 5px 0;
+  margin-top:60px !important; /* The cursor won't entrer the tooltip */
+  margin-left:-20px !important; /* The cursor won't entrer the tooltip */
+  
+	/* Position the tooltip */
+	position: absolute;
+	z-index: 1;
+  }
+  
+  .item-wood:hover .tooltiptext,
+  .item-wood1:hover .tooltiptext,
+  .item-orange:hover .tooltiptext,
+  .item-honey:hover .tooltiptext,
+  .item-baked_orange:hover .tooltiptext,
+  .item-baked_honey:hover .tooltiptext,
+  .item-cake:hover .tooltiptext,
+  .item-upper:hover .tooltiptext,
+  .item-lower:hover .tooltiptext,
+  .item-helmet:hover .tooltiptext,
+  .item-mask:hover .tooltiptext,
+  .item-shield:hover .tooltiptext,
+  .item-spear:hover .tooltiptext,
+  .item-orange_dirt:hover .tooltiptext,
+  .item-orange_bush:hover .tooltiptext,
+  .item-orange_tree:hover .tooltiptext,
+  .item-hive_dirt:hover .tooltiptext,
+  .item-hive:hover .tooltiptext,
+  .item-hive_honey:hover .tooltiptext,
+  .item-metal:hover .tooltiptext
+  {
+	visibility: visible;
+  }
+  .item-wood .tooltiptext:hover,
+  .item-wood1 .tooltiptext:hover,
+  .item-orange .tooltiptext:hover,
+  .item-honey .tooltiptext:hover,
+  .item-baked_orange .tooltiptext:hover,
+  .item-baked_honey .tooltiptext:hover,
+  .item-cake .tooltiptext:hover,
+  .item-upper .tooltiptext:hover,
+  .item-lower .tooltiptext:hover,
+  .item-helmet .tooltiptext:hover,
+  .item-mask .tooltiptext:hover,
+  .item-shield .tooltiptext:hover,
+  .item-spear .tooltiptext:hover,
+  .item-metal .tooltiptext:hover
+  {
+	 cursor: default;
+  }
+  .item-wood .tooltiptext button:hover,
+  .item-wood1 .tooltiptext button:hover,
+  .item-orange .tooltiptext button:hover,
+  .item-honey .tooltiptext button:hover,
+  .item-baked_honey .tooltiptext button:hover,
+  .item-baked_orange .tooltiptext button:hover,
+  .item-cake .tooltiptext button:hover,
+  .item-upper .tooltiptext button:hover,
+  .item-lower .tooltiptext button:hover,
+  .item-helmet .tooltiptext button:hover,
+  .item-mask .tooltiptext button:hover,
+  .item-shield .tooltiptext button:hover,
+  .item-spear .tooltiptext button:hover,
+  .item-metal .tooltiptext button:hover
+  {
+	 cursor: pointer;
+  }
+  
+  .item-wood:active .tooltiptext,
+  .item-wood1:active .tooltiptext,
+  .item-orange:active .tooltiptext,
+  .item-honey:active .tooltiptext,
+  .item-baked_orange:active .tooltiptext,
+  .item-baked_honey:active .tooltiptext,
+  .item-cake:active .tooltiptext,
+  .item-upper:active .tooltiptext,
+  .item-lower:active .tooltiptext,
+  .item-helmet:active .tooltiptext,
+  .item-mask:active .tooltiptext,
+  .item-shield:active .tooltiptext,
+  .item-spear:active .tooltiptext,
+  .item-metal:active .tooltiptext
+  {
+	visibility: visible;
+  }
+
+  /**********/
+  /* LABELS */
+  /**********/
+
+.wood-label{
+  padding-right:18px; padding-top: 18px; display:inline-block;
+  background:url(../img/wood.png) no-repeat center center;
+}
+  
+  
+
+  /****************/
+  /* CRAFT & COOK */
+  /****************/
+
+  #wrapper-craft-zone,
+  #wrapper-cook-zone
+  {
+    float:left;
+    width:20%;
+    height:309px;
+    background-color: rgb(217, 255, 0);; 
+    padding-top:28px;  /*to match the invent position */
+    padding-bottom:29px;
+    
+    border: 2px solid black;
+    border-top-left-radius:5px;
+    border-bottom-left-radius:5px;
+    text-align: center;
+    
+  }
+  #wrapper-craft-zone .btn-group-vertical{
+    border:1px solid black; 
+    border-radius:5px;
+  }
+  
+  #wrapper-craft-mats,
+  #wrapper-cook-mats{
+    width:90%;
+    /* background-color: red; */
+    text-align:center;
+  }
+  .wrapper-craft-mat,
+  .wrapper-cook-mat{
+    position:relative; /* pour utiliser position: absolute sur les enfants */
+    display:inline-block;
+    height:50px;
+    width:50px;
+    box-shadow: 1px 1px 5px grey;
+	  margin:5px;
+  }
+  .wrapper-craft-mat{
+    background: greenyellow url(../img/wood-shape.png) no-repeat; /* Put the color in here if you want it added to the image */
+    background-size: 80%;
+  }
+  .wrapper-cook-mat{
+    background: pink; 
+    /*
+    background: pink url(../img/honey-shape.png) no-repeat; 
+    background-size: 80%;
+    */
+  }
+  #wrapper-craft-btns,
+  #wrapper-cook-btns{
+    /* background-color: orange; */
+    padding:10px;
+    text-align:center;
+    padding-top:30px;
+  }
+  #btn-craft,
+  #btn-cook{
+	cursor:pointer;
+  }
+  #right-arrow-craft,
+  #right-arrow-cook{
+	  background:url(../img/right-arrow.png) no-repeat center center;
+	  height:20px;
+	  width:20px;
+    display:inline-block;
+  }
+  .clear-float{
+	clear:both;
+  }
+  
+  
+/***************/
+/* INVENT FARM */
+/***************/
+#invent-farm{
+  position:relative;
+  height:300px;
+  width:98%;
+  background-color: greenyellow;
+  background:url(../img/grass-texture.jpg);
+  border:2px solid black;
+  border-radius: 5px;
+  padding:10px;
+  overflow:auto;
+  margin-top:30px;
+}
+
+
+/****************/
+/* FOLLOW ITEMS */
+/****************/
+
+#follow-items-wrapper{
+  float: left;
+  box-sizing: border-box;
+  height:320px;
+  width:49%;
+  overflow:auto;
+  background-color: #f4e8dc;
+  margin-top: 30px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  border:2px solid black;
+}
+#follow-items-content{
+  box-sizing: border-box;
+  height:100%;
+  width:100%;
+  overflow-y:scroll;
+  overflow-x:hidden;
+  background-color: #f4e8dc;
+  border-radius: 5px;
+}
+#follow-items-content ul{
+  list-style-type: none !important;
+  margin-left:0 !important; /* UL element has browser-inherent padding and margin.*/
+  padding-left: 5px !important;
+}
+
+/***********/
+/* ACTIONS */
+/***********/
+
+#actions-wrapper{
+  float:left;
+  width:98%; /* Put to 48 to display the follow wrapper */
+  height:320px;
+  word-wrap: break-word;
+  overflow:auto;
+  border: 2px solid black;
+  border-radius: 5px;
+  background-color: #f4e8dc;
+  margin-top: 30px;
+  margin-bottom: 20px;
+  margin-right: 1%;
+  box-shadow: 3px 3px 5px grey;
+}
+#actions-wrapper ul{
+  list-style-type: none;
+  margin-left:0;
+  padding-left:5px;
+}
+#actions-wrapper-for-map{
+  float:left;
+  width:98%;
+  height:280px;
+  word-wrap: break-word;
+  overflow:auto;
+  border: 2px solid black;
+  border-radius: 5px;
+  background-color: #f4e8dc;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-right: 1%;
+  box-shadow: 3px 3px 5px grey;
+}
+#actions-wrapper-for-map ul{
+  list-style-type: none;
+  margin-left:0;
+  padding-left:5px;
+}
+/* Action added on success ajax call. Must be animated */
+p .added-action-ajax{
+  transition: background-color 500ms linear;
+}
+/***************/
+/*  CHATBOXES  */
+/***************/
+
+#chatboxes-wrapper{
+height:25px;
+width:100%;
+background-color: orange;
+
+position:fixed;
+bottom:0px; 
+left:0px; 
+}
+
+#left-cb, #right-cb{
+  box-sizing: border-box;
+  float:left;
+  height:100%;
+  width:50%;
+  border:2px solid rgb(110, 28, 28);
+}
+#cb-header{
+  width:100%;
+  height:25px;
+  background-color: rgb(151, 109, 19);
+}
+#cb-selector{
+  float:left;
+  margin: 5px;
+}
+#cb-title{
+  text-align:center;
+  font-weight:bold;
+  float:left;
+}
+#cb-body{
+  box-sizing: border-box;
+  height:100%;
+  width:100%;
+  /*box-shadow:inset 0px 0px 0px 10px brown; Avec BOX-SIZING:BORDER-BOX, le border n'est plus compté en plus du cadre, donc plus besoin d'ombre.*/
+  border:2px solid rgb(110, 28, 28);
+}
+#cb-general-iframe, #cb-local-iframe, #cbleft-iframe, #cbright-iframe{
+  width:100%;
+  height:100%;
+  border: 2px solid rgb(110, 28, 28);
+}
+
+
+#left-cb-title, #right-cb-title{
+  width:100%;
+  height:25px;
+  background-color: rgb(151, 109, 19);
+  text-align:center;
+  font-weight:bold;
+  float:left;
+}
+  
+  
+
+/*FOOTER*/
+
+footer{
+  position: absolute;
+  top:1320px;
+  width:66.66%;
+  /* display: none; */
+}
+
+footer div {
+  box-sizing: border-box;
+	text-align:center;
+  background-color: #dcdcf4;
+  height:105px;
+  border-top:1px solid black;
+  border-bottom:1px solid black;
+}
+
+footer div ul{
+	list-style-type: none !important; /* retire les puces de la liste. Les 3 sont nécessaires*/
+	  margin: 0 !important; 
+	  padding: 0 !important;
+}
+
+footer div ul li{
+	text-decoration:none;
+}
+
+footer .col1 {
+	float:left;
+  width:33.33%;
+  border-left:1px solid black;
+}
+
+footer .col2 {
+	float:left;
+	width:33.33%;
+}
+
+footer .col3 {
+	float:left;
+  width:33.33%;
+  border-right:1px solid black;
+}
+
+
+
+/******************/
+/* PLAYERS SCREEN */
+/******************/
+
+#players-wrapper{
+  height:auto;
+  max-height: 500px;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+#players-wrapper-general{
+  height:auto;
+  max-height: 500px;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+
+/************/
+/* STAT BOX */
+/************/
+
+#stat-box-wrapper{
+  border: 2px solid black;
+  border-radius: 5px;
+  margin:20px;
+  box-shadow: 3px 3px 5px grey;
+}
+#stat-box{
+  width:auto;
+	height:290px;
+	background-color: rgb(162, 230, 46);
+  overflow-x: hidden;
+  overflow-y:auto;
+  word-wrap: break-word;
+}
+#stat-box ul{
+  list-style-type: none;
+  margin:0px;
+  padding-left:5px;
+}
+
+#mastery-logo-stat-box{
+  padding-right:18px; padding-top: 18px; display:inline-block;
+  background:url(../img/mastery.png) no-repeat center center;
+}
+
+
+/********/
+/* NEWS */
+/********/
+
+#major-news-wrapper{
+  width:98%;
+  height:320px;
+  text-align: justify;
+  padding:10px 5px;
+  word-wrap: break-word;
+  overflow:auto;
+  border: 2px solid black;
+  border-radius: 5px;
+  background-color: #f4e8dc;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  box-shadow: 3px 3px 5px grey;
+}
+#major-news-wrapper ul{
+  list-style-type: none;
+  margin-left:0;
+  padding-left:5px;
+}
+
+#minor-news-wrapper{
+  width:98%;
+  height:320px;
+  text-align: justify;
+  padding:10px 5px;
+  word-wrap: break-word;
+  overflow:auto;
+  border: 2px solid black;
+  border-radius: 5px;
+  background-color: #f4e8dc;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  box-shadow: 3px 3px 5px grey;
+}
+#minor-news-wrapper ul{
+  list-style-type: none;
+  margin-left:0;
+  padding-left:5px;
+}
+
+/**************************/
+/* Observations and meteo */
+/**************************/
+
+#observation-wrapper{
+  width:98%;
+  height:auto;
+  text-align: justify;
+  padding:10px 5px;
+  word-wrap: break-word;
+  overflow:auto;
+  border: 2px solid black;
+  border-radius: 5px;
+  background-color: #f4e8dc;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  box-shadow: 3px 3px 5px grey;
+}
+#observation-wrapper p{
+  margin-left:5px;
+  padding-left:10px;
+}
+#weather-wrapper{
+  width:98%;
+  height:auto;
+  text-align: justify;
+  padding:10px 5px;
+  word-wrap: break-word;
+  overflow:auto;
+  border: 2px solid black;
+  border-radius: 5px;
+  background-color: #f4e8dc;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  box-shadow: 3px 3px 5px grey;
+}
+#weather-wrapper p{
+  margin-left:5px;
+  padding-left:10px;
+}
+
+
+/*************/
+/* Buildings */
+/*************/
+
+#buildings{
+  width:98%;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+#building_list{
+  width: 100%;
+  box-shadow: 3px 3px 5px grey;
+  border: 2px solid black;
+}
+#building_list tr th{
+  font-weight: bold;
+  text-align: center;
+}
+/* Pour aligner le contenu d'une cell : <td align="center">*/
+
+.btn-vote-bld
+{
+  border: 1px solid black;
+}
+
+
+
+/****************/
+/* Statistiques */
+/****************/
+
+#player-local-statistic-wrapper{
+  float:left;
+  width:98%;
+  height:320px;
+  word-wrap: break-word;
+  overflow:auto;
+  border: 2px solid black;
+  border-radius: 5px;
+  background-color: #f4e8dc;
+  margin-top: 30px;
+  margin-bottom: 20px;
+  margin-right: 1%;
+  box-shadow: 3px 3px 5px grey;
+}
+#player-local-statistic-wrapper ul{
+  list-style-type: none;
+  margin-left:0;
+  padding-left:5px;
+}
+#city-local-statistic-wrapper{
+  float:left;
+  width:98%;
+  height:320px;
+  word-wrap: break-word;
+  overflow:auto;
+  border: 2px solid black;
+  border-radius: 5px;
+  background-color: #f4e8dc;
+  margin-top: 30px;
+  margin-bottom: 20px;
+  margin-right: 1%;
+  box-shadow: 3px 3px 5px grey;
+}
+#city-local-statistic-wrapper ul{
+  list-style-type: none;
+  margin-left:0;
+  padding-left:5px;
+}
+#global-statistic-wrapper{
+  float:left;
+  width:98%;
+  height:320px;
+  word-wrap: break-word;
+  overflow:auto;
+  border: 2px solid black;
+  border-radius: 5px;
+  background-color: #f4e8dc;
+  margin-top: 30px;
+  margin-bottom: 20px;
+  margin-right: 1%;
+  box-shadow: 3px 3px 5px grey;
+}
+#global-statistic-wrapper ul{
+  list-style-type: none;
+  margin-left:0;
+  padding-left:5px;
+}
+
+
+
+/***********/
+/* ACCOUNT */
+/***********/
+
+#account-form{
+  width:50%; 
+  text-align:center;
+  margin: 0 auto;
+  margin-top: 60px;
+  background-color: white;
+  box-shadow: 1px 1px 5px grey;
+}
+#account-form .form-group{
+  width:75%; 
+  text-align:center;
+  margin: 0 auto;
+  margin-top: 30px;
+}
+#account-form button{
+  margin-top:20px;
+  margin-bottom:20px;
+}
+
+/***********/
+/* HORLOGE */
+/***********/
+
+#link-to-city-center{
+  text-decoration: none;
+}
+#info-horloge{
+  width:50%;
+  height:auto;
+  word-wrap: break-word;
+  border: 2px solid black;
+  border-radius: 5px;
+  background-color: #f4e8dc;
+  margin:auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding:10px;
+  box-shadow: 3px 3px 5px grey;
+}
+
+/****************/
+/* DEATH SCREEN */
+/****************/
+
+#info-screen-text{
+  width:95%;
+  height:auto;
+  word-wrap: break-word;
+  border: 2px solid black;
+  border-radius: 5px;
+  background-color: #f4e8dc;
+  margin:auto;
+  margin-top: 20px;
+  margin-bottom: 700px;
+  padding:10px;
+  box-shadow: 3px 3px 5px grey;
+}
+
+#btn-revive
+{
+    display: block;
+    border:1px solid black;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+/********/
+/* HOME */
+/********/
+
+#info-screen-text-home{
+  width:75%;
+  height:auto;
+  word-wrap: break-word;
+  text-align:center;
+  border: 2px solid black;
+  border-radius: 5px;
+  background-color: #f4e8dc;
+  margin:auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding:10px;
+  box-shadow: 3px 3px 5px grey;
+}
+#wrapper-news{
+  width:75%;
+  height:320px;
+  word-wrap: break-word;
+  overflow:auto;
+  border: 2px solid black;
+  border-radius: 5px;
+  background-color: greenyellow;
+  margin:auto;
+  margin-top: 30px;
+  margin-bottom: 20px;
+  box-shadow: 3px 3px 5px grey;
+}
+#wrapper-news ul{
+  list-style-type: none;
+  margin-left:0;
+  padding-left:5px;
+}
+#wrapper-join-city
+{
+  width:75%;
+  height:auto;
+  max-height: 500px;
+  overflow: auto;
+  word-wrap: break-word;
+  border: 2px solid black;
+  border-radius: 5px;
+  background-color: greenyellow;
+  margin:auto;
+  margin-top: 30px;
+  margin-bottom: 20px;
+  box-shadow: 3px 3px 5px grey;
+}
+#wrapper-join-city table
+{
+  width: 100%;
+}
+.join-city-flag-div
+{
+  height:50px;
+  width: 50px;
+  /* Center div */
+  margin:auto; 
+}
+#wrapper-join-city table tr td
+{
+  text-align: center;
+  border:1px solid grey;
+}
+.join-city-flag-td
+{
+  width: auto;
+  min-width: 20px;
+}
+.join-city-flag-img
+{
+  max-width: 100%;
+  max-height: 100%;
+}
+#create-city-btn
+{
+  display: block;
+  margin:auto;
+  border:1px solid black;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+.join-city-btn
+{
+  border:1px solid black;
+}
+
+/***********/
+/* ADVICES */
+/***********/
+
+#info-screen-text-advice{
+  width:95%;
+  height:auto;
+  word-wrap: break-word;
+  border: 2px solid black;
+  border-radius: 5px;
+  background-color: #e8f4dc;
+  margin:auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding:10px;
+  box-shadow: 3px 3px 5px grey;
+}
+
+/***********************/
+/* VICTOIRE et DEFAITE */
+/***********************/
+
+/* Statistiques */
+
+#info-screen-text-victory{
+  width:95%;
+  height:auto;
+  word-wrap: break-word;
+  border: 2px solid black;
+  border-radius: 5px;
+  background-color: #f4e8dc;
+  margin:auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding:10px;
+  box-shadow: 3px 3px 5px grey;
+}
+#info-screen-text-defeat{
+  width:95%;
+  height:auto;
+  word-wrap: break-word;
+  border: 2px solid black;
+  border-radius: 5px;
+  background-color: #f4e8dc;
+  margin:auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding:10px;
+  box-shadow: 3px 3px 5px grey;
+}
+
+
+#wrapper-city-stats{
+  width:98%;
+  height:320px;
+  word-wrap: break-word;
+  overflow:auto;
+  border: 2px solid black;
+  border-radius: 5px;
+  background-color: #f4dcdc;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-left:1%;
+  box-shadow: 3px 3px 5px grey;
+}
+#wrapper-city-stats ul{
+  list-style-type: none;
+  margin-left:0;
+  padding-left:5px;
+}
+
+#wrapper-best-player-stats{
+  width:98%;
+  height:320px;
+  word-wrap: break-word;
+  overflow:auto;
+  border: 2px solid black;
+  border-radius: 5px;
+  background-color: #f4dcdc;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-left:1%;
+  box-shadow: 3px 3px 5px grey;
+}
+#wrapper-best-player-stats ul{
+  list-style-type: none;
+  margin-left:0;
+  padding-left:5px;
+}
+
+
+/*****************/
+/* PLAYER SCREEN */
+/*****************/
+
+#mastery-logo-player{
+  padding-right:18px; padding-top: 18px; display:inline-block;
+  background:url(../img/mastery.png) no-repeat center center;
+}
+
+/*************************************/
+/* INFO SCREENS (account, statistic) */
+/*************************************/
+
+#center-content-info{
+  width:95%;
+  height:auto;
+  word-wrap: break-word;
+  margin:auto;
+  margin-top: 20px;
+  margin-bottom: 30px;
+  padding:10px;
+}
+
+
+/**************/
+/* RESPONSIVE */
+/**************/
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+
+  #left-img {
+    width:0px;
+    height:0px;
+  }
+  
+  #center-div{
+    min-height:100vh;
+    padding:0px;
+  }
+  
+  #right-img{
+    width:0px;
+    height:0px;
+  }
+  
+  #left-img img {
+    width:0px;
+    height:0px; 
+  }
+  
+  #right-img img {
+    width:0px;
+    height:0px; 
+  }
+
+  /* ************** */
+  /*   LEFT MENU    */
+  /* ************** */
+  #left-menu {
+    visibility: hidden;
+    position: fixed;
+    top: 0px;
+    left: 10px;
+    float: none;
+    border: 1px solid black;
+    border-radius: 5px;
+    box-shadow: 3px 3px 5px grey;
+  }
+
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) and (max-width: 768px) {
+
+  #left-img {
+    width:0px;
+    height:0px;
+  }
+  
+  #center-div{
+    min-height:100vh;
+    padding:0px;
+  }
+  
+  #right-img{
+    width:0px;
+    height:0px;
+  }
+  
+  #left-img img {
+    width:0px;
+    height:0px; 
+  }
+  
+  #right-img img {
+    width:0px;
+    height:0px; 
+  }
+
+  /* Hides the hourtime in the navbar as it breaks the alignment */
+  #navbar-currtime
+  {
+    display: none;
+  }
+
+  /* ************** */
+  /*   LEFT MENU    */
+  /* ************** */
+  #left-menu {
+    visibility: hidden;
+    position: absolute;
+    top: 60px;
+    left: 10px;
+    float: none;
+    width:30%;
+    border: 1px solid black;
+    border-radius: 5px;
+    box-shadow: 3px 3px 5px grey;
+    background-color: #f5f5dc;
+
+    animation-name: left-menu-fade-in;
+    animation-duration: 0.5s;
+  }
+
+  @keyframes left-menu-fade-in {
+    from {width: 0%;}
+    to {width:30%;}
+  }
+
+  #center-content,
+  #forum-center-content
+  {
+    width:100%;
+    padding:20px;
+  }
+
+  #btn-toggle-left-menu
+  {
+    display: compact;
+  }
+
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) and (max-width: 992px) {
+
+  #left-img {
+    width:0px;
+    height:0px;
+  }
+  
+  #center-div{
+    min-height:100vh;
+    padding:0px;
+  }
+  
+  #right-img{
+    width:0px;
+    height:0px;
+  }
+  
+  #left-img img {
+    width:0px;
+    height:0px; 
+  }
+  
+  #right-img img {
+    width:0px;
+    height:0px; 
+  }
+  
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) and (max-width: 1200px) {
+
+  #left-img {
+    width:0px;
+    height:0px;
+  }
+  
+  #center-div{
+    min-height:100vh;
+    padding:0px;
+  }
+  
+  #right-img{
+    width:0px;
+    height:0px;
+  }
+  
+  #left-img img {
+    width:0px;
+    height:0px; 
+  }
+  
+  #right-img img {
+    width:0px;
+    height:0px; 
+  }
+
+}
+
+/* Extra large devices */
+@media only screen and (min-width: 1200px) and (max-width: 1800px) {
+
+  
+  #left-img {
+    width:0px;
+    height:0px;
+  }
+  
+  #center-div{
+    min-height:100vh;
+    padding:0px;
+  }
+  
+  #right-img{
+    width:0px;
+    height:0px;
+  }
+  
+  #left-img img {
+    width:0px;
+    height:0px; 
+  }
+  
+  #right-img img {
+    width:0px;
+    height:0px; 
+  }
+
+} 
